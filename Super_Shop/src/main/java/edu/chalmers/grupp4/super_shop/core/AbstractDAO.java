@@ -14,7 +14,7 @@ import javax.persistence.TypedQuery;
  *
  * K is type of id (primary key)
  *
- * @author hajo
+ * @author andrn
  */
 public abstract class AbstractDAO<T, K> implements IDAO<T, K> {
 

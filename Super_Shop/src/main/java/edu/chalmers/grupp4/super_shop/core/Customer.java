@@ -11,7 +11,6 @@ import javax.persistence.Id;
  *
  * @author hajo
  */
-//@Embedded
 @Entity
 public class Customer implements Serializable {
 
