@@ -12,6 +12,7 @@ public class Address implements Serializable {
 
     private String street;
     private int nbr;
+    private int postalcode;
     private String town;
 
     public Address() {
@@ -22,7 +23,11 @@ public class Address implements Serializable {
         this.nbr = nbr;
         this.town = town;
     }
-
+    
+    public int  getPostalcode(){
+        return postalcode;
+    }
+    
     public int getNbr() {
         return nbr;
     }
@@ -37,6 +42,6 @@ public class Address implements Serializable {
 
     @Override
     public String toString() {
-        return "Address{" + "street=" + street + ", nbr=" + nbr + ", town=" + town + '}';
+        return "Address{" + "street=" + street + ", nbr=" + nbr + ", postalcode=" + postalcode + ", town=" + town + '}';
     }
 }
