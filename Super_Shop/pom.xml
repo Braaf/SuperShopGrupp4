@@ -8,6 +8,7 @@
     <packaging>war</packaging>
 
     <name>Super_Shop</name>
+    <url>http://maven.apache.org</url>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -44,6 +45,15 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    
+    <repositories>
+        <repository>
+            <url>http://download.eclipse.org/rt/eclipselink/maven.repo/</url>
+            <id>eclipselink</id>
+            <layout>default</layout>
+            <name>Repository for library EclipseLink (JPA 2.0)</name>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
