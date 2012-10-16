@@ -13,21 +13,21 @@ import java.util.List;
 
 /**
  *
- * @author Osten
+ * @author Ossian
  */
 public class CartBB {
     
-    private final transient OrderBook order = (OrderBook) JPAShop.INSTANCE.getOrderBook();
+    private OrderBookBean orderBookB;
     
     public void CartBB(){
     }
     
     public List<PurchaseOrder> getAll(Customer c){
-        return order.getAll();
+        return orderBookB.getAll();
     }
     
     public void remove(Long id){
-        order.remove(id);
+        orderBookB.remove(id);
     }
     
     public void update(Product p){

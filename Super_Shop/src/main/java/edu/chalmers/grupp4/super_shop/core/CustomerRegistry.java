@@ -28,4 +28,12 @@ public final class CustomerRegistry extends AbstractDAO<Customer, Long> implemen
         }
         return found;
     }
+    
+    public Customer getById(Long id){
+        for(Customer c : getAll()){
+            if(c.getId().equals(id)){
+                return c;
+            }
+        } return null;
+    }
 }

@@ -8,7 +8,7 @@ import javax.inject.Named;
 
 /**
  *
- * @author Osten
+ * @author Ossian
  */
 @Named("products")
 @RequestScoped
