@@ -19,6 +19,10 @@ public class CustomerRegistryBean {
     public Customer getById(Long id){
         return customerRegistry.getById(id);
     }
+    
+    public List<Customer> getByName(String name) {
+        return customerRegistry.getByName(name);
+    }
         
     public List<Customer> getAll(){
         return customerRegistry.getAll();

@@ -22,27 +22,20 @@ public class Customer implements Serializable {
     private String fname;
     private String lname;
     private String email;
+    private String username;
+    private String password;
 
     public Customer() {
     }
 
-    public Customer(Long id, Address address, String fname,
-            String lname, String email) {
+    public Customer(Long id, Address address, String fname, String lname, String email, String username, String password) {
         this.id = id;
         this.address = address;
         this.fname = fname;
         this.lname = lname;
         this.email = email;
-    }
-
-    public Customer(Address address, String fname,
-            String lname, String email) {
-        // For now. Later database will generate id
-        this.id = new Long(new Random().nextInt(100));
-        this.address = address;
-        this.fname = fname;
-        this.lname = lname;
-        this.email = email;
+        this.username = username;
+        this.password = password;
     }
 
     public void addProductToCart(Product product) {
@@ -86,6 +79,14 @@ public class Customer implements Serializable {
 
     public String getLname() {
         return lname;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     @Override
