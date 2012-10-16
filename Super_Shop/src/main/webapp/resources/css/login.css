@@ -9,10 +9,9 @@
 #loginform {
     float: right;
     margin: 3em;
-    
 }
 
-#loginform, #passwordlabel {
+#loginform:usernamelabel, #passwordlabel {
     display: block;
     margin-bottom: 0.5em;
     text-align: left;
