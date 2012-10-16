@@ -9,7 +9,7 @@ import javax.enterprise.context.SessionScoped;
 
 /**
  *
- * @author Osten
+ * @author Ossian
  */
 @SessionScoped
 public class ProductCatalogueBean implements Serializable{

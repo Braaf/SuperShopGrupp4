@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  *
- * @author Osten
+ * @author Ossian
  */
 public class CartBB {
     
