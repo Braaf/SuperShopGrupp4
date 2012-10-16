@@ -15,7 +15,7 @@
     <h:body>
 
         <div id="top" class="top">
-            <ui:insert name="top">Top</ui:insert>
+            <ui:insert name="top"></ui:insert>
             
             <h:link value="Login" outcome="login" />
             
@@ -31,7 +31,34 @@
                 <ui:insert name="content">Content</ui:insert>
             </div>
             <div id ="content" class="content_info">
-                Info
+                <div class="info_block">
+                    <table>
+                        <tr><th>About us</th></tr>
+                        <tr><td>LINK</td></tr>
+                        <tr><td>LINK</td></tr>
+                        <tr><td>LINK</td></tr>
+                        <tr><td>LINK</td></tr>
+                    </table>
+                </div>
+                <div class="info_block">
+                    <table>
+                        <tr><th>Support</th></tr>
+                        <tr><td>LINK</td></tr>
+                        <tr><td>LINK</td></tr>
+                        <tr><td>LINK</td></tr>
+                        <tr><td>LINK</td></tr>
+                    </table>
+                </div>
+                <div class="info_block">
+                    <table>
+                        <tr><th class="text_left">Contact</th></tr>
+                        <tr><td>SuperCompany</td></tr>
+                        <tr><td>Superstreet 15</td></tr>
+                        <tr><td>123 12 Supertown</td></tr>
+                        <tr><td>super@superman.supershop.se</td></tr>
+                    </table>
+                </div>
+                <p id="copright"><br />© 2012 SuperCompany. All rights reserved.</p>
             </div>
         </div>
 
