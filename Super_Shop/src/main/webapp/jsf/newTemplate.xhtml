@@ -8,6 +8,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="./../resources/css/default.css" rel="stylesheet" type="text/css" />
         <link href="./../resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <link href="./../resources/css/login.css" rel="stylesheet" type="text/css" />
         <title>Facelets Template</title>
     </h:head>
 
@@ -15,18 +16,22 @@
 
         <div id="top" class="top">
             <ui:insert name="top">Top</ui:insert>
+            
+            <h:link value="Login" outcome="login" />
+            
+            
         </div>
 
         <div id="wrapper" class="content_wrapper">
             <div id="banner" class ="banner">
-                <ui:insert name ="banner"><img src="../resources/Banner.png" /></ui:insert>
+                <img src="./../resources/img/Banner.png" />
             </div>
             
             <div id ="content" class ="content_box">
                 <ui:insert name="content">Content</ui:insert>
             </div>
             <div id ="content" class="content_info">
-                    <ui:insert name="content_info">info</ui:insert>
+                Info
             </div>
         </div>
 

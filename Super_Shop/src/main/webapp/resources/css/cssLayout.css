@@ -10,20 +10,18 @@
     background-color: #c2dfef;
     padding: 0px;
     margin: 0px;
-    text-align: center ;
 }
 
 #banner {
     padding: 0px;
     margin: auto;
-    
+    text-align: center ;
 }
 
 #content {
+    margin: auto;
     padding:0em;
-    width:50%;
-    margin:auto;
-    margin-top:0em;
+    width:600px;
     border-style: solid;
     border-width: 0.1em;
 }

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <body>
+
+        <ui:composition template="./newTemplate.xhtml">
+
+            <ui:define name="top">
+
+            </ui:define>
+
+            
+            <ui:define name="content">
+                <form action="" id="loginform">
+                    <label for="username" id="usernamelabel">Username:</label>
+                    <input type="text" id="username" name="username" /><br />
+                    <label for="password" id="passwordlabel">Password:</label>
+                    <input type="password" id="password" name="password" /><br />
+                    <input type="submit" id="submit" value="Login" />
+                </form>
+            </ui:define>
+
+            <ui:define name="content_info">
+                content_info
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
