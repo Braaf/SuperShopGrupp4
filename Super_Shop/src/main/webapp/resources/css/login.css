@@ -6,6 +6,24 @@
         Purpose of the stylesheet follows.
 */
 
-#usernamelabel {
+#loginform {
+    float: right;
+    margin: 3em;
     
+}
+
+#loginform, #passwordlabel {
+    display: block;
+    margin-bottom: 0.5em;
+    text-align: left;
+}
+
+#username, #password {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+#submit {
+    float: right;
+    margin-top: 6px;
 }
