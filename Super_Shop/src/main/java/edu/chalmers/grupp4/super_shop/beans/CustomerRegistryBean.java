@@ -3,15 +3,16 @@ package edu.chalmers.grupp4.super_shop.beans;
 import edu.chalmers.grupp4.super_shop.core.Customer;
 import edu.chalmers.grupp4.super_shop.core.CustomerRegistry;
 import edu.chalmers.grupp4.super_shop.core.JPAShop;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author Ossian
  */
-public class CustomerRegistryBean {
+public class CustomerRegistryBean implements Serializable{
     
-    private final transient CustomerRegistry customerRegistry = (CustomerRegistry) JPAShop.INSTANCE.getCustomerRegistry();
+    private final CustomerRegistry customerRegistry = (CustomerRegistry) JPAShop.INSTANCE.getCustomerRegistry();
     
     public void CustomerRegistryBean(){
         
