@@ -21,6 +21,7 @@
                
                 <ace:tabSet id="ProductSet" clientSide="true">
                     <ace:tabPane id="sale" label="SuperSale">
+                        
                         <!-- http://icefaces-showcase.icesoft.org/showcase.jsf?grp=aceMenu&exp=dataTableBean -->
                         <h:form id="form">
                             <ace:dataTable id="saleTable"
@@ -49,13 +50,19 @@
                                 </ace:column>
                                 
                                 <ace:column id="add" headerText="Add">
-                                    <h:outputText id="addCell" value="">
-                                        <!-- Add a add to cart thingy here and ajax it up! -->
-                                       
-                                    </h:outputText>
+                                    <h:panelGrid styleClass="animationHolderParent">
+                                        <h:panelGrid styleClass="animationHolder">
+                                            <h:graphicImage id="saleAddCell" value="./../resources/img/cart.png" height="75px"
+                                                            width="75px"/>
+                                            <ace:animation event="click" name="clip"/>
+                                            <ace:animation event="click" name="highlight"/>
+                                        </h:panelGrid>
+                                    </h:panelGrid>
+
                                 </ace:column>
                             </ace:dataTable>
                         </h:form>
+                        
                     </ace:tabPane>
                     <ace:tabPane id="jackets" label="SuperJackets">
                     </ace:tabPane>
@@ -75,9 +82,6 @@
                       
                     </ace:tabPane>
                 </ace:tabSet>
-                
-                <!-- Loop through a list of product here and display them in a 
-                nice manner -->
                 
             </ui:define>
 
