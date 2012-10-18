@@ -43,6 +43,10 @@ public class CustomerRegistryBean implements Serializable{
         customerRegistry.remove(id);
     }
     
+    public void removeAll() {
+        customerRegistry.clear("Customer");
+    }
+    
     public void update(Customer c){
         customerRegistry.update(c);
     }

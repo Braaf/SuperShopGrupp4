@@ -151,14 +151,14 @@ public abstract class AbstractDAO<T, K> implements IDAO<T, K> {
         }
     }
     
-    public void clear() {
+    public void clear(String type) {
         
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         try {
 
             tx.begin();
-            Query query = em.createQuery("delete from Product p");
+            Query query = em.createQuery("delete from " + type + " p");
             query.executeUpdate();
             tx.commit();
 

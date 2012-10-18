@@ -32,7 +32,7 @@ public class JPAShopTests {
     
     @Before
     public void setup() {
-        catalogue.clear();
+        catalogue.clear("Product");
        // catalogue.add(new Product("banana", 13.11)); wrong constructors
       //  catalogue.add(new Product("sven", 10.11));
     }

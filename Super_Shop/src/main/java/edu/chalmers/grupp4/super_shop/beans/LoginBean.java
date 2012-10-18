@@ -9,7 +9,7 @@ import edu.chalmers.grupp4.super_shop.core.Customer;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
-import javax.enterprise.context.ConversationScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -19,7 +19,7 @@ import javax.inject.Named;
  * @author Andreas
  */
 @Named
-@ConversationScoped
+@SessionScoped
 public class LoginBean implements Serializable {
 
     private CustomerRegistryBean bean;
@@ -61,6 +61,7 @@ public class LoginBean implements Serializable {
     }
     
     public void login(ActionEvent event) {
+        bean.removeAll();
         bean.add(new Customer(new Address("Gibraltargatan", 78, 41279, "Göteborg"),
                 "Andreas", "Nilsson", 19910101, "a@a.com", "ante", "sven"));
         List<Customer> list = bean.getByUsername(username);
