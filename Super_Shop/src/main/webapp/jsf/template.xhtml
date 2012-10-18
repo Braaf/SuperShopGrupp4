@@ -19,15 +19,15 @@
             <ui:insert name="top"></ui:insert>
             
             
-            <h:form>
-                <c:if test="#{loginBean.loggedIn}">
-                    <h:link value="#{loginBean.username}" outcome="test" />
+            <h:form style="float: left;">
+                <c:if test="#{loginBean.loggedIn == true}">
+                    <h:link value="#{loginBean.username}" outcome="products" />
                 </c:if>
-                <c:if test="#{!loginBean.loggedIn}">
+                <c:if test="#{loginBean.loggedIn == false}">
                     <h:link value="Login" outcome="login" />
                 </c:if>
             </h:form>
-            or &nbsp; <h:link value="Register" outcome="register" />
+            &nbsp;or <h:link value="Register" outcome="register" />
             &nbsp;<h:link value="Product" outcome="products" />
             
             

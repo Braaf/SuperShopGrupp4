@@ -23,10 +23,10 @@ import javax.inject.Named;
 public class LoginBean implements Serializable {
 
     private CustomerRegistryBean bean;
-    private Long id;
-    private String username;
-    private String password;
-    private boolean loggedIn;
+    private static Long id;
+    private static String username;
+    private static String password;
+    private static boolean loggedIn;
 
     public LoginBean() {
     }
