@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class CustomerRegistryBean implements Serializable{
     
-    private final CustomerRegistry customerRegistry = (CustomerRegistry) JPAShop.INSTANCE.getCustomerRegistry();
+    private final transient CustomerRegistry customerRegistry = (CustomerRegistry) JPAShop.INSTANCE.getCustomerRegistry();
     
     public void CustomerRegistryBean(){
         

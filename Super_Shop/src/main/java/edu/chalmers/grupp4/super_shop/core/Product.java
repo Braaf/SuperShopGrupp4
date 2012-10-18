@@ -21,21 +21,32 @@ public class Product implements Serializable {
     private Long id;
     private String name;
     private double price;
+    private String description;
+    private int stock;
+    private String category;
+    private String picture;
 
     public Product() {
     }
 
-    public Product(Long id, String name, double price) {
+    public Product(Long id, String name, double price, String category, int stock, String description, String picture) {
         this.id = id;
         this.name = name;
         this.price = price;
+        this.category = category;
+        this.stock = stock;
+        this.description = description;
+        this.picture = picture;
     }
     
-    public Product(String name, double price) {
-         // For now. Later database will generate id
+    public Product(String name, double price, String category, int stock, String description, String picture) {
         this.id = new Long(new Random().nextInt(100));
         this.name = name;
         this.price = price;
+        this.category = category;
+        this.stock = stock;
+        this.description = description;
+        this.picture = picture;
     }
     
     public String getName() {
@@ -48,6 +59,26 @@ public class Product implements Serializable {
 
     public double getPrice() {
         return price;
+    }
+    
+    public String getCategory(){
+        return category;
+    }
+    
+    public int getStock(){
+        return stock;
+    }
+    
+    public String getDescription(){
+        return description;
+    }
+    
+    public String getPicture(){
+        return picture;
+    }
+    
+    public void setStock(int stock){
+        this.stock = stock;
     }
 
     @Override

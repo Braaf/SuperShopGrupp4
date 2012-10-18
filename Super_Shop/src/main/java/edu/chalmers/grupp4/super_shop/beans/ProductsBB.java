@@ -30,4 +30,8 @@ public class ProductsBB {
     public List<Product> getAll(){
         return pcBean.getAll();
     }
+    
+    public void setStock(String name, int stock){
+        pcBean.setStock(name, stock);
+    }
 }
