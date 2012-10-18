@@ -103,12 +103,12 @@ public abstract class AbstractDAO<T, K> implements IDAO<T, K> {
     }
 
     @Override
-    public List<T> getAll() {
+    public List<T> getAll(String type) {
 
         EntityManager em = emf.createEntityManager();
         try {
 
-            TypedQuery<T> query = em.createQuery("select p from Product p", clazz);
+            TypedQuery<T> query = em.createQuery("select p from " + type + " p", clazz);
             return query.getResultList();
 
         } catch (Exception e) {

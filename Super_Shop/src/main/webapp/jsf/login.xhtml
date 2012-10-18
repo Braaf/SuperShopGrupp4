@@ -15,14 +15,33 @@
             
             <ui:define name="content">
                 
-                <h:form id="loginform">
-                    <h:outputLabel value="Username:" id="usernamelabel" /><br />
-                    <h:inputText value="#{loginBean.user.username}" id="username" /><br />
-                    <h:outputLabel value="Password:" id="passwordlabel" /><br />
-                    <h:inputText value="#{loginBean.user.password}" id="password" /><br />
-                    <h:commandButton action="welcome" value="Login" />
+                
+                <h:form>
+                    
+                    <h:outputText value="Username:" />
+                    <h:inputText label="Username"
+                       id="name" value="#{loginBean.username}"
+                       required="true"/>
+                    <h:message for="username" />
+                    <br />
+                    <h:outputText value="Password:" />
+                    <h:inputText label="Password"
+                       id="price" value="#{loginBean.password}"
+                       required="true"/>
+                    <h:message for="password" />
+                    
+                    <h:commandButton value="Login" action="customers" actionListener="#{loginBean.login}" />
+                    
                 </h:form>
-                <div style="clear: both;"></div>
+                
+                <!--<h:form id="loginform">
+                    <h:outputLabel value="Username:" id="usernamelabel" /><br />
+                    <h:inputText value="#{loginBean.setUsername(username)}" id="username" /><br />
+                    <h:outputLabel value="Password:" id="passwordlabel" /><br />
+                    <h:inputText value="#{loginBean.setPassword(password)}" id="password" /><br />
+                    <h:commandButton action="loginBean" value="Login" />
+                </h:form>
+                <div style="clear: both;"></div> -->
                 
                 <!--<form action="" method="POST" id="loginform">
                     <label for="username" id="usernamelabel">Username:</label>

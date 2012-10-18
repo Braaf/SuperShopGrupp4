@@ -58,7 +58,7 @@ public class JPAShopTests {
     
     @Test
     public void testGetAll() {
-        Assert.assertTrue(catalogue.getAll().size() == 2);
+        Assert.assertTrue(catalogue.getAll("Product").size() == 2);
     }
     
     @Test

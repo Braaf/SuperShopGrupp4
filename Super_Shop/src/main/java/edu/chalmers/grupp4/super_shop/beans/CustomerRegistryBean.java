@@ -24,9 +24,13 @@ public class CustomerRegistryBean implements Serializable{
     public List<Customer> getByName(String name) {
         return customerRegistry.getByName(name);
     }
+    
+    public List<Customer> getByUsername(String name) {
+        return customerRegistry.getByUsername(name);
+    }
         
     public List<Customer> getAll(){
-        return customerRegistry.getAll();
+        return customerRegistry.getAll("Customer");
     }
     
     public void add(Customer c){
