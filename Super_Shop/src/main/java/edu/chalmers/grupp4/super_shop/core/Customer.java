@@ -21,6 +21,7 @@ public class Customer implements Serializable {
     private Address address;
     private String fname;
     private String lname;
+    private int pnumb;
     private String email;
     private String username;
     private String password;
@@ -28,11 +29,12 @@ public class Customer implements Serializable {
     public Customer() {
     }
 
-    public Customer(Long id, Address address, String fname, String lname, String email, String username, String password) {
-        this.id = id;
+    public Customer(Address address, String fname, String lname, int pnumb, String email, String username, String password) {
+        this.id = new Long(new Random().nextInt(100));
         this.address = address;
         this.fname = fname;
         this.lname = lname;
+        this.pnumb = pnumb;
         this.email = email;
         this.username = username;
         this.password = password;
@@ -79,6 +81,10 @@ public class Customer implements Serializable {
 
     public String getLname() {
         return lname;
+    }
+    
+    public int getPnumb(){
+        return pnumb;
     }
 
     public String getUsername() {

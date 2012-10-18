@@ -18,9 +18,10 @@ public class Address implements Serializable {
     public Address() {
     }
 
-    public Address(String street, int nbr, String town) {
+    public Address(String street, int nbr, int postalCode, String town) {
         this.street = street;
         this.nbr = nbr;
+        this.postalcode = postalCode;
         this.town = town;
     }
     
