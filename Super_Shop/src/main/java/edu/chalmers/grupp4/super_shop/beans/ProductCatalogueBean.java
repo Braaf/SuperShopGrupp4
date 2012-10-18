@@ -24,6 +24,10 @@ public class ProductCatalogueBean implements Serializable{
         return pc.getAll();
     }
     
+    public List<Product> getByName(String name){
+        return pc.getByName(name);
+    }
+    
     public void add(Product p){
         pc.add(p);
     } 
@@ -34,5 +38,9 @@ public class ProductCatalogueBean implements Serializable{
     
     public void update(Product p){
         pc.update(p);
+    }
+    
+    public void setStock(String name, int stock){
+        pc.getByName(name).get(0).setStock(stock); //change the stock of the product
     }
 }
