@@ -20,10 +20,10 @@
 
 #content {
     margin: auto;
-    padding:0em;
     width:50%;
     border-style: solid;
     border-width: 0.1em;
+    padding:1em;
 }
 
 .info_block{
@@ -46,7 +46,6 @@
     border-radius: 0.3em 0.3em 0em 0em;
     -moz-border-radius: 0.3em 0.3em 0em 0em;
     border-width: 0em;
-    padding:0em;
 }
 
 .content_info {
@@ -54,7 +53,6 @@
     -moz-border-radius: 0em 0em 0.3em 0.3em;
     background-color: grey;
     margin:0em;
-    padding: 0.3em;
     border-top-width: 0em;
 }
 
