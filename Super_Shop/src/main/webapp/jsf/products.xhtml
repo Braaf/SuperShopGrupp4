@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:c="http://java.sun.com/jsp/jstl/core">
+      xmlns:ace="http://www.icefaces.org/icefaces/components">
 
     <body>
 
@@ -16,13 +16,17 @@
             <ui:define name="content">
                 <!-- Category choice list -->
                 <ul class="inline">
-                    <li>SuperPants</li>
+                    <li><ace:ajax render="productTable">SuperPants</ace:ajax></li>
                     <li>SuperJackets</li>
                     <li>SuperShorts</li>
                     <li>SuperShoes</li>
                     <li>SuperSuits</li>
                     <li>SuperShirts</li>
                 </ul>
+                
+               <br />
+               
+               <ace:dataTable id="productTable"></ace:dataTable>
                 
                 <!-- Loop through a list of product here and display them in a 
                 nice manner -->
