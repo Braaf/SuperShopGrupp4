@@ -21,7 +21,7 @@ public class OrderBookBean {
         return orderBook.getByCustomer(c);
     }
     public List<PurchaseOrder> getAll(){
-        return orderBook.getAll();
+        return orderBook.getAll("Customer");
     }
     
     public void add(PurchaseOrder po){

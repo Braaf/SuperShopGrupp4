@@ -22,7 +22,7 @@ public final class OrderBook extends AbstractDAO<PurchaseOrder, Long> implements
     @Override
     public List<PurchaseOrder> getByCustomer(Customer c) {
         List<PurchaseOrder> found = new ArrayList<>();
-        for (PurchaseOrder po : getAll()) {
+        for (PurchaseOrder po : getAll("Purchesorder")) {
             if (po.getCustomer().equals(c)) {
                 found.add(po);
             }

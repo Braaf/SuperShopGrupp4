@@ -21,7 +21,7 @@ public final class ProductCatalogue extends AbstractDAO<Product, Long> implement
     @Override
     public List<Product> getByName(String name) {
         List<Product> found = new ArrayList<>();
-        for (Product p : getAll()) {
+        for (Product p : getAll("Product")) {
             if (p.getName().equals(name)) {
                 found.add(p);
             }

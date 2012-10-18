@@ -21,7 +21,7 @@ public class ProductCatalogueBean implements Serializable{
     }
     
     public List<Product> getAll(){
-        return pc.getAll();
+        return pc.getAll("Product");
     }
     
     public List<Product> getByName(String name){

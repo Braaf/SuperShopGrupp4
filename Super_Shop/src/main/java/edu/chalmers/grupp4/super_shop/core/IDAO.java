@@ -20,7 +20,7 @@ public interface IDAO<T, K> {
 
     public T find(K id);
 
-    public List<T> getAll();
+    public List<T> getAll(String type);
 
     public List<T> getRange(int maxResults, int firstResult);
 
