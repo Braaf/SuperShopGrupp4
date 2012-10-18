@@ -34,4 +34,6 @@ public class ProductsBB {
     public void setStock(String name, int stock){
         pcBean.setStock(name, stock);
     }
+    
+
 }
