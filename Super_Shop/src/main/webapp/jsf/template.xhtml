@@ -15,22 +15,27 @@
 
     <h:body>
 
-        <div id="top" class="top">
-            <ui:insert name="top"></ui:insert>
+        <div id="top_wrapper" class="top_wrapper">
             
-            
-            <h:form style="float: left;">
-                <c:if test="#{loginBean.loggedIn == true}">
-                    <h:link value="#{loginBean.username}" outcome="products" />
-                </c:if>
-                <c:if test="#{loginBean.loggedIn == false}">
-                    <h:link value="Login" outcome="login" />
-                </c:if>
-            </h:form>
-            &nbsp;or <h:link value="Register" outcome="register" />
-            &nbsp;<h:link value="Product" outcome="products" />
-            
-            
+            <div id="top" class="top">
+
+                <ui:insert name="top"></ui:insert>
+
+                <h:form style="float: left;">
+                    <c:if test="#{loginBean.loggedIn == true}">
+                        <h:link value="#{loginBean.username}" outcome="products" style="font-style: italic;" />
+                        &nbsp;<h:link value="Log out" outcome="login" />
+                    </c:if>
+                    <c:if test="#{loginBean.loggedIn == false}">
+                        <h:link value="Login" outcome="login" />
+                        &nbsp;or <h:link value="Register" outcome="register" />
+                    </c:if>
+                </h:form>
+                &nbsp;<h:link value="Check out" outcome="products" style="float: right; margin-right: 1em;" />
+                &nbsp;<h:link value="Cart" outcome="products" style="float: right; margin-right: 1em;" />
+                &nbsp;<h:link value="Home" outcome="products" style="float: right; margin-right: 1em;" />
+
+            </div>
             
         </div>
 

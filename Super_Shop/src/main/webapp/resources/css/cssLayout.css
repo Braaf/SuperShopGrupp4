@@ -2,8 +2,16 @@
 #top {
     background-color: black;
     color: white;
-    padding: 0.5em;
-    margin: 0em;
+    padding: 0.8em;
+    margin: 0em auto;
+    width: 850px;
+    font-size: 0.9em;
+}
+
+#top_wrapper {
+    background-color: black;
+    padding: 0;
+    margin: 0;
 }
 
 #wrapper {
@@ -65,7 +73,7 @@
 #top a:link:hover, #top a:visited:hover  {
   color: blue;
   font-weight : bold;
-  text-decoration : underline;
+  text-decoration : none;
 }
 
 

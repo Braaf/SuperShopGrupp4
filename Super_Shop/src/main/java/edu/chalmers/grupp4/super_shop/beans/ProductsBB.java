@@ -1,6 +1,7 @@
 package edu.chalmers.grupp4.super_shop.beans;
 
 import edu.chalmers.grupp4.super_shop.core.Product;
+import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -12,7 +13,7 @@ import javax.inject.Named;
  */
 @Named("products")
 @RequestScoped
-public class ProductsBB {
+public class ProductsBB implements Serializable {
     
     private ProductCatalogueBean pcBean;
     

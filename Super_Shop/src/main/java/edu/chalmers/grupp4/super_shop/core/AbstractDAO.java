@@ -115,6 +115,7 @@ public abstract class AbstractDAO<T, K> implements IDAO<T, K> {
             return null;
         } finally {
             em.close();
+            em = null;
         }
 
     }

@@ -41,6 +41,10 @@ public enum JPAShop {
     
     private void createProducts(){
         
+        if (productCatalogue.getCount() > 0) {
+            return;
+        }
+        
         //pants
         productCatalogue.add(new Product("Superpants - blue", Double.parseDouble("250"), "pants", 12, "Awesome pair of blue superpants!", "./../resources/img/super_shop_clothes/super_pants/super_pants_blue.jpg"));
         productCatalogue.add(new Product("Superpants - brown", Double.parseDouble("235"), "pants", 9, "Awesome pair of brown superpants!", "./../resources/img/super_shop_clothes/super_pants/super_pants_brown.jpg"));
