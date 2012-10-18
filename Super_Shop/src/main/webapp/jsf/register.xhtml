@@ -18,7 +18,41 @@ and open the template in the editor.
             </ui:define>
 
             <ui:define name="content">
-                
+                <h:form>
+                    <h:panelGrid border ="1" columns="2">
+                        <h:outputText value="First name: "/>
+                        <h:inputText id="fname" value="#{registerBB.fname}" />
+                        
+                        <h:outputText value="Last name: " />
+                        <h:inputText id="lname" value="#{registerBB.lname}"/>
+                        
+                        <h:outputText value="Date of birth: " />
+                        <h:inputText id="pnumb" value="#{registerBB.pnumb}"/>
+                        
+                        <h:outputText value="Email: " />
+                        <h:inputText id="email" value="#{registerBB.email}"/>
+                        
+                        <h:outputText value="Street: " />
+                        <h:inputText id="street" value="#{registerBB.street}"/>
+                        
+                        <h:outputText value="Streetnumber: " />
+                        <h:inputText id="streetNumber" value="#{registerBB.streetNumber}"/>
+                        
+                        <h:outputText value="Postalcode: " />
+                        <h:inputText id="postalCode" value="#{registerBB.postalCode}"/>
+                        
+                        <h:outputText value="City: " />
+                        <h:inputText id="town" value="#{registerBB.town}"/>
+                        
+                        <h:outputText value="Username: " />
+                        <h:inputText id="username" value="#{registerBB.username}"/>
+                        
+                        <h:outputText value="Password: " />
+                        <h:inputText id="password" value="#{registerBB.password}"/>
+                        
+                        <h:commandButton value="Register" action="#{registerBB.addNewCustomer()}"/>
+                    </h:panelGrid>                    
+                </h:form>
                 
             </ui:define>
 
