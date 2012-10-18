@@ -35,5 +35,35 @@ public class ProductsBB {
         pcBean.setStock(name, stock);
     }
     
+    //*************************************************//
+    // Methods for product listing by category!        //
+    //*************************************************//
+    public List<Product> getSale(){
+        return pcBean.getByCategory("sale");
+    }
+    
+    public List<Product> getJackets(){
+        return pcBean.getByCategory("jackets");
+    }
+    
+    public List<Product> getShirts(){
+        return pcBean.getByCategory("shirts");
+    }
+    
+    public List<Product> getPants(){
+        return pcBean.getByCategory("pants");
+    }
+    
+    public List<Product> getShoes(){
+        return pcBean.getByCategory("shoes");
+    }
+    
+    public List<Product> getShorts(){
+        return pcBean.getByCategory("shorts");
+    }
+    
+    public List<Product> getSuits(){
+        return pcBean.getByCategory("suits");
+    }
 
 }
