@@ -43,4 +43,9 @@ public class ProductCatalogueBean implements Serializable{
     public void setStock(String name, int stock){
         pc.getByName(name).get(0).setStock(stock); //change the stock of the product
     }
+    
+    public List<Product> getByCategory(String cat){
+        return pc.getByCategory(cat);
+    }
+    
 }

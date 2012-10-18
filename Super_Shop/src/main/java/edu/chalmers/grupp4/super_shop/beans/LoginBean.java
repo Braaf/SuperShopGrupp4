@@ -61,8 +61,8 @@ public class LoginBean implements Serializable {
     }
     
     public void login(ActionEvent event) {
-        bean.add(new Customer(1L, new Address("Gibraltargatan 78", 41279, "Göteborg"),
-                "Andreas", "Nilsson", "a@a.com", "ante", "sven"));
+        bean.add(new Customer(new Address("Gibraltargatan", 78, 41279, "Göteborg"),
+                "Andreas", "Nilsson", 19910101, "a@a.com", "ante", "sven"));
         List<Customer> list = bean.getByUsername(username);
         if (list.isEmpty()) {
             // TODO no user with that username

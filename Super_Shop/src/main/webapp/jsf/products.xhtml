@@ -24,32 +24,33 @@
                         <!-- http://icefaces-showcase.icesoft.org/showcase.jsf?grp=aceMenu&exp=dataTableBean -->
                         <h:form id="form">
                             <ace:dataTable id="saleTable"
-                                           value=""
+                                           value="#{products.sale}"
                                            var="prod">
                                 
-                                <ace:column id="pic" headerText="Picture">
-                                    <h:outputText id="picCell" value=""/>
+                                <ace:column id="salePic" headerText="Picture">
+                                    <h:outputText id="salePicCell" value=""/>
                                 </ace:column>
                                 
-                                <ace:column id="name" headerText="Name" sortBy="">
-                                    <h:outputText id="nameCell" value=""/>
+                                <ace:column id="name" headerText="Name" sortBy="#{prod.name}">
+                                    <h:outputText id="nameCell" value="#{prod.name}"/>
                                 </ace:column>
                                 
-                                <ace:column id="desc" headerText="Description" sortBy="" >
-                                    <h:outputText id="descCell" value=""/>
+                                <ace:column id="desc" headerText="Description" >
+                                    <h:outputText id="descCell" value="#{prod.description}"/>
                                 </ace:column>
                                 
-                                <ace:column id="price" headerText="Price" sortBy="">
-                                    <h:outputText id="priceCell" value=""/>
+                                <ace:column id="price" headerText="Price" sortBy="#{prod.price}">
+                                    <h:outputText id="priceCell" value="#{prod.price}"/>
                                 </ace:column>
                                 
-                                <ace:column id="quantity" headerText="Quantity in stock" sortBy="">
-                                    <h:outputText id="quantityCell" value=""/>
+                                <ace:column id="quantity" headerText="Quantity in stock" sortBy="#{prod.stock}">
+                                    <h:outputText id="quantityCell" value="#{prod.stock}"/>
                                 </ace:column>
                                 
                                 <ace:column id="add" headerText="Add">
                                     <h:outputText id="addCell" value="">
-                                        
+                                        <!-- Add a add to cart thingy here and ajax it up! -->
+                                        <ace:ajax />
                                     </h:outputText>
                                 </ace:column>
                             </ace:dataTable>

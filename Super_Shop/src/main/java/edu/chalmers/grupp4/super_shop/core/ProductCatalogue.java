@@ -28,4 +28,14 @@ public final class ProductCatalogue extends AbstractDAO<Product, Long> implement
         }
         return found;
     }
+    
+    public List<Product> getByCategory(String cat) {
+        List<Product> found = new ArrayList<>();
+        for (Product p : getAll("Product")) {
+            if (p.getCategory().equals(cat)) {
+                found.add(p);
+            }
+        }
+        return found;
+    }
 }
