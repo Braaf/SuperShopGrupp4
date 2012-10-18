@@ -16,7 +16,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author Osten
+ * @author Ossian
  */
 @Named("registerBB")
 @RequestScoped
@@ -57,7 +57,8 @@ public class RegisterBB {
     @Size(min = 1, max = 10, message = "Username: must be between 1 and 10 chars long")
     private String username;
     
-    private Address address;
+//    private Address address;
+    
     //Empty parameter constructor
     public RegisterBB(){
     }
@@ -88,9 +89,9 @@ public class RegisterBB {
         return email;
     }
     
-    public Address getAddress(){
-        return address;
-    }
+//    public Address getAddress(){
+//        return address;
+//    }
     
     public String getPassword(){
         return password;
@@ -132,10 +133,10 @@ public class RegisterBB {
     public void setEmail(String email){
         this.email = email;
     }
-    
-    public void setAddress(Address address){
-        this.address = address;
-    }
+//    
+//    public void setAddress(Address address){
+//        this.address = address;
+//    }
     
     public void setPassword(String password){
         this.password = password;

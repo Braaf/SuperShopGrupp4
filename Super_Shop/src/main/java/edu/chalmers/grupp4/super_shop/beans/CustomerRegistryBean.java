@@ -5,18 +5,20 @@ import edu.chalmers.grupp4.super_shop.core.CustomerRegistry;
 import edu.chalmers.grupp4.super_shop.core.JPAShop;
 import java.io.Serializable;
 import java.util.List;
+import javax.enterprise.context.SessionScoped;
 
 /**
  *
  * @author Ossian
  */
+@SessionScoped
 public class CustomerRegistryBean implements Serializable{
     
-    private final transient CustomerRegistry customerRegistry = (CustomerRegistry) JPAShop.INSTANCE.getCustomerRegistry();
+    private final CustomerRegistry customerRegistry = (CustomerRegistry) JPAShop.INSTANCE.getCustomerRegistry();
     
-    public void CustomerRegistryBean(){
-        
+    public void CustomerRegistryBean(){        
     }
+    
     public Customer getById(Long id){
         return customerRegistry.getById(id);
     }
