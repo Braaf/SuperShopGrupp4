@@ -68,7 +68,7 @@ public class RegisterBB {
     
     public String addNewCustomer(){
         crBean.add(new Customer(new Address(street, streetNumber, postalCode, town), fname, lname, pnumb, email, username, password));
-        return "products?faces-redirect=true"; //might be changed later
+        return "login?faces-redirect=true"; //might be changed later
     }
     //Getters and setters
     public Long getId(){
