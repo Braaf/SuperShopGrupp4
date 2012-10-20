@@ -24,10 +24,15 @@ public class NotifyBean implements Serializable {
     public NotifyBean() {
         Map<String,String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         String msg = params.get("msg");
-        
-        if (msg.equals("passwordChanged")) {
-            title = "Password is now changed!";
-            description = "Your password has now been changed.";
+        switch (msg) {
+            case "passwordChanged":
+                title = "Password is now changed!";
+                description = "Your password has now been changed.";
+                break;
+            case "passwordNotChanged":
+                title = "Password is not changed!";
+                description = "Your password has not been changed because new password and confirmation passwords does not match.";
+                break;
         }
     }
 
