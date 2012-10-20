@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:c="http://java.sun.com/jsp/jstl/core" 
+      xmlns:icecore="http://www.icefaces.org/icefaces/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components" 
+      xmlns:ice="http://www.icesoft.com/icefaces/component" 
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <body>
+
+        <ui:composition template="./template.xhtml">
+
+            <ui:define name="top">
+
+            </ui:define>
+
+            <ui:define name="content">
+                
+                    
+
+                        <!-- http://icefaces-showcase.icesoft.org/showcase.jsf?grp=aceMenu&exp=dataTableBean -->
+                        <h:form id="form">
+                            <ace:dataTable id="cartTable"
+                                           value="#{cartBean.getProducts()}"
+                                           var="prod">
+
+                                <ace:column id="salePic" headerText="Picture">
+                                    <h:graphicImage id="saleImgCell" height="125px" width="125px"
+                                                    value="#{prod.picture}" />
+                                </ace:column>
+
+                                <ace:column id="saleName" headerText="Name">
+                                    <h:outputText id="saleNameCell" value="#{prod.name}"/>
+                                </ace:column>
+
+                                <ace:column id="saleDesc" headerText="Description" >
+                                    <h:outputText id="saleDescCell" value="#{prod.description}"/>
+                                </ace:column>
+
+                                <ace:column id="salePrice" headerText="Price">
+                                    <h:outputText id="salePriceCell" value="#{prod.price}"/>
+                                </ace:column>
+
+                                <ace:column id="selectedQuantity" headerText="Quantity selected">
+                                    <h:outputText id="saleQuantityCell" value="#{cartBean.getProductFreq(prod)}"/>
+                                </ace:column>
+                                
+                            </ace:dataTable>
+                        </h:form>                    
+                
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
