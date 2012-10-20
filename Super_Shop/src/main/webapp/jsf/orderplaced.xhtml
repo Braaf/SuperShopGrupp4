@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <body>
+
+        <ui:composition template="./template.xhtml">
+
+            <ui:define name="top">
+                
+            </ui:define>
+
+            <ui:define name="content">
+                
+                <h:outputText value="Thank you for ordering from Super Shop!"/><br/>
+                <h:outputText value="Your order will be sent to you as soon as possibe, have a supergreat day!"/>
+                <h:link value="Keep drowling at our superproducts" outcome="products"/>
+                
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
