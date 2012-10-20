@@ -1,5 +1,6 @@
 package edu.chalmers.grupp4.super_shop.beans;
 
+import edu.chalmers.grupp4.super_shop.core.Cart;
 import edu.chalmers.grupp4.super_shop.core.Product;
 import java.io.Serializable;
 import java.util.List;
@@ -17,7 +18,6 @@ public class ProductsBB implements Serializable {
     
     private ProductCatalogueBean pcBean;
     
-    
     public ProductsBB(){
         
     }
@@ -34,6 +34,14 @@ public class ProductsBB implements Serializable {
     
     public void setStock(String name, int stock){
         pcBean.setStock(name, stock);
+    }
+    
+    public void decrementStock(Product p){
+        System.out.println(p.getName() + "prodname");
+        if(p.getStock() > 0){
+            pcBean.setStock(p.getName(), p.getStock() - 1);
+            
+        }
     }
     
     //*************************************************//
