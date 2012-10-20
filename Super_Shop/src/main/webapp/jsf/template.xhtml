@@ -24,7 +24,7 @@
 
                 <h:form style="float: left;">
                     <c:if test="#{loginBean.loggedIn == true}">
-                        <h:link value="#{loginBean.username}" outcome="account" style="font-style: italic;" />
+                        <h:link value="#{loginBean.username}" outcome="#{accountBean.init(loginBean.username)}" style="font-style: italic;" />
                         &nbsp;<h:commandLink value="Log out" action="#{loginBean.logout()}" />
                     </c:if>
                     <c:if test="#{loginBean.loggedIn == false}">

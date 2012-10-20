@@ -16,9 +16,91 @@
                 <div id="account_content">
 
                     <h1>My Account</h1>
+                    
+                    <h2>Change Password</h2>
+                    
+                    <h:form>
+                    
+                        <h:outputText value="New Password:" class="usernamelabel"/>
+                        <h:inputText label="newpassword"
+                           class="username" value="#{accountBean.password}"
+                           required="true"/>
+                        <h:message for="newpassword" />
+                        <h:outputText value="Confirmation Password:" class="passwordlabel"/>
+                        <h:inputSecret label="confpassword"
+                           class="password" value="#{accountBean.confPassword}"
+                           onkeypress=""
+                           required="true"/>
+                        <h:message for="confpassword" />
+                        <h:commandButton class="submit" type="submit" value="Change Password" action="#{accountBean.changePassword()}" />
+
+                    </h:form>
+                    <div style="clear: both;"></div>
+                    
                     <h2>Address</h2>
+                    
+                    <h:form>
+                    
+                        <h:outputText value="First Name:" class="usernamelabel"/>
+                        <h:inputText label="Firstname"
+                           class="username" value="#{accountBean.fname}"
+                           required="true"/>
+                        <h:message for="firstname" />
+                        <h:outputText value="Last Name:" class="passwordlabel"/>
+                        <h:inputText label="Lastname"
+                           class="password" value="#{accountBean.lname}"
+                           onkeypress=""
+                           required="true"/>
+                        <h:message for="lastname" />
+                        <h:outputText value="Street:" class="passwordlabel"/>
+                        <h:inputText label="Street"
+                           class="password" value="#{accountBean.street}"
+                           onkeypress=""
+                           required="true"/>
+                        <h:message for="street" />
+                        <h:outputText value="Street Number:" class="passwordlabel"/>
+                        <h:inputText label="StreetNumber"
+                           class="password" value="#{accountBean.streetNumber}"
+                           onkeypress=""
+                           required="true"/>
+                        <h:message for="streetnumber" />
+                        <h:outputText value="Postal Code:" class="passwordlabel"/>
+                        <h:inputText label="Postalcode"
+                           class="password" value="#{accountBean.postalCode}"
+                           onkeypress=""
+                           required="true"/>
+                        <h:message for="postalcode" />
+                        <h:outputText value="Town:" class="passwordlabel"/>
+                        <h:inputText label="Town"
+                           class="password" value="#{accountBean.town}"
+                           onkeypress=""
+                           required="true"/>
+                        <h:message for="town" />
+                        <h:commandButton class="submit" type="submit" value="Apply changes" action="#{accountBean.apply()}" />
+
+                    </h:form>
+                    <div style="clear: both;"></div>
 
                     <h2>Other Information</h2>
+                    
+                    <h:form>
+                    
+                        <h:outputText value="Email:" class="passwordlabel"/>
+                        <h:inputText label="Email"
+                           class="password" value="#{accountBean.email}"
+                           onkeypress=""
+                           required="true"/>
+                        <h:message for="email" />
+                        <h:outputText value="Social security number:" class="passwordlabel"/>
+                        <h:inputText label="pnumb"
+                           class="password" value="#{accountBean.pnumb}"
+                           onkeypress=""
+                           required="true"/>
+                        <h:message for="pnumb" />
+                        <h:commandButton class="submit" type="submit" value="Apply changes" action="#{accountBean.applyLogin()}" />
+
+                    </h:form>
+                    <div style="clear: both;"></div>
 
                 </div>
                 
