@@ -8,49 +8,27 @@
 
         <ui:composition template="./template.xhtml">
 
-            <ui:define name="top">
-
-            </ui:define>
-
+            <ui:define name="top"></ui:define>
             
             <ui:define name="content">
                 
-                
-                <h:form>
+                <h:form id="loginform" >
                     
-                    <h:outputText value="Username:" />
+                    <h:outputText value="Username:" class="usernamelabel"/>
                     <h:inputText label="Username"
-                       id="username" value="#{loginBean.username}"
+                       class="username" value="#{loginBean.username}"
                        required="true"/>
                     <h:message for="username" />
-                    <br />
-                    <h:outputText value="Password:" />
-                    <h:inputText label="Password"
-                       id="password" value="#{loginBean.password}"
+                    <h:outputText value="Password:" class="passwordlabel"/>
+                    <h:inputSecret label="Password"
+                       class="password" value="#{loginBean.password}"
                        required="true"/>
                     <h:message for="password" />
-                    
-                    <h:commandButton value="Login" action="products" actionListener="#{loginBean.login}" />
+                    <h:commandButton class="submit" value="Login" action="#{loginBean.login()}" />
                     
                 </h:form>
+                <div style="clear: both;"></div>
                 
-                <!--<h:form id="loginform">
-                    <h:outputLabel value="Username:" id="usernamelabel" /><br />
-                    <h:inputText value="#{loginBean.setUsername(username)}" id="username" /><br />
-                    <h:outputLabel value="Password:" id="passwordlabel" /><br />
-                    <h:inputText value="#{loginBean.setPassword(password)}" id="password" /><br />
-                    <h:commandButton action="loginBean" value="Login" />
-                </h:form>
-                <div style="clear: both;"></div> -->
-                
-                <!--<form action="" method="POST" id="loginform">
-                    <label for="username" id="usernamelabel">Username:</label>
-                    <input type="text" id="username" name="username" size="15"/>
-                    <label for="password" id="passwordlabel">Password:</label>
-                    <input type="password" id="password" name="password" size="15"/>
-                    <input type="submit" id="submit" value="Login" />
-                </form>
-                <div style="clear: both;"></div> -->
             </ui:define>
 
             <ui:define name="content_info">

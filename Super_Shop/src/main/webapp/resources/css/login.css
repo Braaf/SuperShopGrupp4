@@ -7,22 +7,24 @@
 */
 
 #loginform {
-    float: right;
-    margin: 3em;
+    margin: 0 auto;
+    width: 20em;
+    padding: 5em;
+    padding-bottom: 6em;
 }
 
-#loginform:usernamelabel, #passwordlabel {
+.usernamelabel, .passwordlabel {
     display: block;
     margin-bottom: 0.5em;
     text-align: left;
 }
 
-#username, #password {
+.username, .password {
     display: block;
     margin-bottom: 0.5em;
 }
 
-#submit {
-    float: right;
-    margin-top: 6px;
+.submit {
+    float: left;
+    margin-top: 0.5em;
 }

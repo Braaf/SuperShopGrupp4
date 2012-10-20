@@ -60,7 +60,12 @@ public class LoginBean implements Serializable {
         this.password = password;
     }
     
-    public void login(ActionEvent event) {
+    public String login() {
+        
+        if (loggedIn) {
+            return "products?faces-redirect=true";
+        }
+        
         bean.removeAll();
         bean.add(new Customer(new Address("Gibraltargatan", 78, 41279, "Göteborg"),
                 "Andreas", "Nilsson", 19910101, "a@a.com", "ante", "sven"));
@@ -71,10 +76,21 @@ public class LoginBean implements Serializable {
             // TODO multiple users with equal usernames is not allowed
         } else if (list.get(0).getPassword().equals(password)) {
             loggedIn = true; // TODO user is authenticated
+            return "products?faces-redirect=true";
         } else {
             // TODO username and password does not match
         }
         
+        return "login?faces-redirect=true";
+        
+    }
+    
+    public String logout() {
+        loggedIn = false;
+        id = 0L;
+        username = "";
+        password = "";
+        return "products?faces-redirect=true";
     }
 
     @Override
