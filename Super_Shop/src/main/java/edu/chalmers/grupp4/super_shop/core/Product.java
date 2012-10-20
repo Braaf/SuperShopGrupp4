@@ -40,7 +40,7 @@ public class Product implements Serializable {
     }
     
     public Product(String name, double price, String category, int stock, String description, String picture) {
-        this.id = new Long(new Random().nextInt(100));
+        //this.id = new Long(new Random().nextInt(100));
         this.name = name;
         this.price = price;
         this.category = category;

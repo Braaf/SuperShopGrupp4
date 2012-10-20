@@ -24,10 +24,10 @@
                 <h:form style="float: left;">
                     <c:if test="#{loginBean.loggedIn == true}">
                         <h:link value="#{loginBean.username}" outcome="products" style="font-style: italic;" />
-                        &nbsp;<h:link value="Log out" outcome="login" />
+                        &nbsp;<h:commandLink value="Log out" action="#{loginBean.logout()}" />
                     </c:if>
                     <c:if test="#{loginBean.loggedIn == false}">
-                        <h:link value="Login" outcome="login" />
+                        <h:commandLink value="Login" action="#{loginBean.login()}" />
                         &nbsp;or <h:link value="Register" outcome="register" />
                     </c:if>
                 </h:form>
