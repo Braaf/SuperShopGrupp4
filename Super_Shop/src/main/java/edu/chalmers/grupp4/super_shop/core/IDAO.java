@@ -15,6 +15,8 @@ public interface IDAO<T, K> {
     public void add(T t);
 
     public void remove(K id);
+    
+    public void clear(String type);
 
     public void update(T t);
 
@@ -24,5 +26,5 @@ public interface IDAO<T, K> {
 
     public List<T> getRange(int maxResults, int firstResult);
 
-    public int getCount();
+    public int getCount(String type);
 }

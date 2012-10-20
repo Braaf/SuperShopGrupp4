@@ -138,11 +138,11 @@ public abstract class AbstractDAO<T, K> implements IDAO<T, K> {
     }
 
     @Override
-    public int getCount() {
+    public int getCount(String type) {
         EntityManager em = emf.createEntityManager();
         try {
 
-            TypedQuery<T> query = em.createQuery("select p from Product p", clazz);
+            TypedQuery<T> query = em.createQuery("select p from " + type + " p", clazz);
             return query.getResultList().size();
 
         } catch (Exception e) {
@@ -152,6 +152,7 @@ public abstract class AbstractDAO<T, K> implements IDAO<T, K> {
         }
     }
     
+    @Override
     public void clear(String type) {
         
         EntityManager em = emf.createEntityManager();

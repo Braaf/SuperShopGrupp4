@@ -12,7 +12,7 @@
             
             <ui:define name="content">
                 
-                <h:form id="loginform" >
+                <h:form id="loginform" onsubmit="#{loginBean.login()}" >
                     
                     <h:outputText value="Username:" class="usernamelabel"/>
                     <h:inputText label="Username"
@@ -22,9 +22,10 @@
                     <h:outputText value="Password:" class="passwordlabel"/>
                     <h:inputSecret label="Password"
                        class="password" value="#{loginBean.password}"
+                       onkeypress=""
                        required="true"/>
                     <h:message for="password" />
-                    <h:commandButton class="submit" value="Login" action="#{loginBean.login()}" />
+                    <h:commandButton class="submit" type="submit" value="Login" action="#{loginBean.login()}" />
                     
                 </h:form>
                 <div style="clear: both;"></div>

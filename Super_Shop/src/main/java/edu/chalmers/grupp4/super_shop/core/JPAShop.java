@@ -21,6 +21,7 @@ public enum JPAShop {
     private JPAShop() {
         Logger.getAnonymousLogger().log(Level.INFO, "Shop alive {0}", this.hashCode());
         createProducts(); //add products to the productcatalogue
+        createCustomer();
     }
 
     public ICustomerRegistry getCustomerRegistry() {
@@ -41,7 +42,7 @@ public enum JPAShop {
     
     private void createProducts(){
         
-        if (productCatalogue.getCount() > 0) {
+        if (productCatalogue.getCount("Product") > 0) {
             return;
         }
         
@@ -86,6 +87,13 @@ public enum JPAShop {
         productCatalogue.add(new Product("Supersuit - blue", Double.parseDouble("1999"), "suits", 9, "The blue supersuit!", "./../resources/img/super_shop_clothes/super_suits/super_suit_blue.jpg"));
         productCatalogue.add(new Product("Supersuit - gray", Double.parseDouble("1799"), "suits", 9, "The gray supersuit!", "./../resources/img/super_shop_clothes/super_suits/super_suit_gray.jpg"));
         
-    }   
+    }
+    
+    private void createCustomer() {
+        if (customerRegistry.getCount("Customer") == 0) {
+            customerRegistry.add(new Customer(new Address("Gibraltargatan", 78, 41279, "Göteborg"),
+                                              "Andreas", "Nilsson", 19910101, "a@a.com", "ante", "sven"));
+        }
+    }
     
 }

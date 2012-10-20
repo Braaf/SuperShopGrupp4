@@ -39,13 +39,13 @@ public class JPAShopTests {
 
     @Test
     public void testAdd() {
-        Assert.assertTrue(catalogue.getCount() == 2);
+        Assert.assertTrue(catalogue.getCount("Product") == 2);
     }
     
     @Test
     public void testRemove() {
         catalogue.remove(catalogue.getByName("banana").get(0).getId());
-        Assert.assertTrue(catalogue.getCount() == 1);
+        Assert.assertTrue(catalogue.getCount("Product") == 1);
     }
     
     @Test

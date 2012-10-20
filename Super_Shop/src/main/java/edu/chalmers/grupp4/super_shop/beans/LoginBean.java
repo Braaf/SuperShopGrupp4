@@ -4,13 +4,11 @@
  */
 package edu.chalmers.grupp4.super_shop.beans;
 
-import edu.chalmers.grupp4.super_shop.core.Address;
 import edu.chalmers.grupp4.super_shop.core.Customer;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -23,10 +21,10 @@ import javax.inject.Named;
 public class LoginBean implements Serializable {
 
     private CustomerRegistryBean bean;
-    private static Long id;
-    private static String username;
-    private static String password;
-    private static boolean loggedIn;
+    private Long id;
+    private String username;
+    private String password;
+    private boolean loggedIn;
 
     public LoginBean() {
     }
@@ -66,16 +64,13 @@ public class LoginBean implements Serializable {
             return "products?faces-redirect=true";
         }
         
-        bean.removeAll();
-        bean.add(new Customer(new Address("Gibraltargatan", 78, 41279, "Göteborg"),
-                "Andreas", "Nilsson", 19910101, "a@a.com", "ante", "sven"));
         List<Customer> list = bean.getByUsername(username);
         if (list.isEmpty()) {
             // TODO no user with that username
         } else if (list.size() > 1) {
             // TODO multiple users with equal usernames is not allowed
         } else if (list.get(0).getPassword().equals(password)) {
-            loggedIn = true; // TODO user is authenticated
+            loggedIn = true;
             return "products?faces-redirect=true";
         } else {
             // TODO username and password does not match
