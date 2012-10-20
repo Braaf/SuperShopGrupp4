@@ -26,7 +26,7 @@ public class RegisterBB {
     
     private long id;
     @NotNull
-    @Size(min = 1, max = 10, message = "Name: Must use 1-10 chars")
+    @Size(min = 1, max = 10, message = "Name: Must use 1-10 chars\n")
     private String fname;
     @NotNull
     @Size(min = 2, max = 20, message = "Last name: Must use 2-20 chars")
@@ -42,16 +42,14 @@ public class RegisterBB {
     @Max(value = 999, message = "Street number: Too big, max 999")
     private int streetNumber;
     @NotNull
-    @Size(min = 5, max = 5, message = "Postalcode: must be 5 signs long")
     private int postalCode;
     @NotNull
-    @Size(min = 1, max = 20, message = "Town: must be between 1 and 20 chars long")
+    @Size(min = 1, max = 20, message = "City: must be between 1 and 20 chars long")
     private String town;    
     @NotNull
     @Size(min = 5, max= 15, message = "Password must be between 5 and 15 chars long")
     private String password;
     @NotNull
-    @Size(min = 6, max = 6, message = "Pnumb should be 6 signs: YYMMDD")
     private int pnumb;
     @NotNull
     @Size(min = 1, max = 10, message = "Username: must be between 1 and 10 chars long")
@@ -161,4 +159,9 @@ public class RegisterBB {
     public void setPostalCode(int postalCode){
         this.postalCode = postalCode;
     }
+    
+    public void setUsername(String username){
+        this.username = username;
+    }
+    
 }
