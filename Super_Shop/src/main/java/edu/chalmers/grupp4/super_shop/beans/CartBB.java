@@ -36,4 +36,5 @@ public class CartBB {
         cbean.addProd(p);
         return "products?faces-redirect=true";
     }
+    
 }
