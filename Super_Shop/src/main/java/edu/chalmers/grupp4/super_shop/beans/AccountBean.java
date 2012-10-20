@@ -59,6 +59,13 @@ public class AccountBean implements Serializable {
     @NotNull
     @Size(min = 5, max= 15, message = "Password must be between 5 and 15 chars long")
     private String password;
+    
+    @NotNull
+    @Size(min = 5, max= 15, message = "Password must be between 5 and 15 chars long")
+    private String newPassword;
+    
+    @NotNull
+    @Size(min = 5, max= 15, message = "Password must be between 5 and 15 chars long")
     private String confPassword;
     
     @NotNull
@@ -67,6 +74,8 @@ public class AccountBean implements Serializable {
     @NotNull
     @Size(min = 1, max = 10, message = "Username: must be between 1 and 10 chars long")
     private String username;
+    
+    private Customer customer;
 
     public AccountBean() {
     }
@@ -82,7 +91,7 @@ public class AccountBean implements Serializable {
             return "products?faces-redirect=true";
         }
         
-        Customer customer = list.get(0);
+        customer = list.get(0);
         fname = customer.getFname();
         lname = customer.getLname();
         email = customer.getEmail();
@@ -99,11 +108,15 @@ public class AccountBean implements Serializable {
     }
     
     public String changePassword() {
-        if (password.equals(confPassword)) {
-            bean.update(new Customer(new Address(street, streetNumber, postalCode, town), fname, lname, pnumb, email, username, password));
-            return "";
+        if (newPassword.equals(confPassword)) {
+            bean.update(new Customer(customer.getId(), new Address(street, streetNumber, postalCode, town), fname, lname, pnumb, email, username, newPassword));
+            password = "";
+            newPassword = "";
+            confPassword = "";
+            return "notify?faces-redirect=true&msg=passwordChanged";
+        } else {
+            return "notify?faces-redirect=true&msg=passwordNotChanged";
         }
-        return "";
     }
 
     public String getEmail() {
@@ -125,6 +138,12 @@ public class AccountBean implements Serializable {
     public String getPassword() {
         return password;
     }
+
+    public String getNewPassword() {
+        return newPassword;
+    }
+    
+    
 
     public String getConfPassword() {
         return confPassword;
@@ -153,6 +172,18 @@ public class AccountBean implements Serializable {
     public String getUsername() {
         return username;
     }
+
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
+    }
+
+    
+    public void setConfPassword(String confPassword) {
+        this.confPassword = confPassword;
+    }
+    
+    
+    
     
     
     

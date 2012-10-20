@@ -30,7 +30,17 @@ public class Customer implements Serializable {
     }
 
     public Customer(Address address, String fname, String lname, int pnumb, String email, String username, String password) {
-        this.id = new Long(new Random().nextInt(100));
+        this.address = address;
+        this.fname = fname;
+        this.lname = lname;
+        this.pnumb = pnumb;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+    }
+    
+    public Customer(Long id, Address address, String fname, String lname, int pnumb, String email, String username, String password) {
+        this.id = id;
         this.address = address;
         this.fname = fname;
         this.lname = lname;
