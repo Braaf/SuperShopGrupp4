@@ -2,6 +2,7 @@
 package edu.chalmers.grupp4.super_shop.core;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -31,7 +32,9 @@ public final class ProductCatalogue extends AbstractDAO<Product, Long> implement
     
     public List<Product> getByCategory(String cat) {
         List<Product> found = new ArrayList<>();
-        for (Product p : getAll("Product")) {
+        Iterator<Product> it = getAll("Product").iterator();
+        while(it.hasNext()) {
+            Product p = it.next();
             if (p.getCategory().equals(cat)) {
                 found.add(p);
             }
