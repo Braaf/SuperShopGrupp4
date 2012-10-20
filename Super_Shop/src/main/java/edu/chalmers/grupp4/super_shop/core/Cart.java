@@ -1,5 +1,6 @@
 package edu.chalmers.grupp4.super_shop.core;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,7 +9,7 @@ import java.util.Map;
  * 
  * @author hajo
  */
-public class Cart {
+public class Cart implements Serializable{
 
     // Java 1.7
     private final Map<Product, Integer> productFreq = new HashMap<>();

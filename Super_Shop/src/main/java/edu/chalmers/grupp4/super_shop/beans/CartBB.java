@@ -10,27 +10,30 @@ import edu.chalmers.grupp4.super_shop.core.OrderBook;
 import edu.chalmers.grupp4.super_shop.core.Product;
 import edu.chalmers.grupp4.super_shop.core.PurchaseOrder;
 import java.util.List;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 /**
  *
  * @author Ossian
  */
+@Named
+@RequestScoped
 public class CartBB {
     
-    private OrderBookBean orderBookB;
+    private CartBean cbean;
     
-    public void CartBB(){
+    public CartBB(){
     }
     
-    public List<PurchaseOrder> getAll(Customer c){
-        return orderBookB.getAll();
+    @Inject
+    public CartBB(CartBean cbean){
+        this.cbean = cbean;
     }
     
-    public void remove(Long id){
-        orderBookB.remove(id);
-    }
-    
-    public void update(Product p){
-    //    order.update(p);
+    public String addProd(Product p){
+        cbean.addProd(p);
+        return "products?faces-redirect=true";
     }
 }

@@ -33,27 +33,29 @@
                                                     value="#{prod.picture}" />
                                 </ace:column>
                                 
-                                <ace:column id="name" headerText="Name">
-                                    <h:outputText id="nameCell" value="#{prod.name}"/>
+                                <ace:column id="saleName" headerText="Name">
+                                    <h:outputText id="saleNameCell" value="#{prod.name}"/>
                                 </ace:column>
                                 
-                                <ace:column id="desc" headerText="Description" >
-                                    <h:outputText id="descCell" value="#{prod.description}"/>
+                                <ace:column id="saleDesc" headerText="Description" >
+                                    <h:outputText id="saleDescCell" value="#{prod.description}"/>
                                 </ace:column>
                                 
-                                <ace:column id="price" headerText="Price">
-                                    <h:outputText id="priceCell" value="#{prod.price}"/>
+                                <ace:column id="salePrice" headerText="Price">
+                                    <h:outputText id="salePriceCell" value="#{prod.price}"/>
                                 </ace:column>
                                 
-                                <ace:column id="quantity" headerText="Quantity in stock">
-                                    <h:outputText id="quantityCell" value="#{prod.stock}"/>
+                                <ace:column id="saleQuantity" headerText="Quantity in stock">
+                                    <h:outputText id="saleQuantityCell" value="#{prod.stock}"/>
                                 </ace:column>
                                 
                                 <ace:column id="add" headerText="Add">
                                     <h:panelGrid styleClass="animationHolderParent">
                                         <h:panelGrid styleClass="animationHolder">
-                                            <h:graphicImage id="saleAddCell" value="./../resources/img/cart.png" height="75px"
-                                                            width="75px"/>
+                                            <h:commandLink action="#{cartBB.addProd(prod)}" onclick="#{products.decrementStock(prod)}">
+                                                <h:graphicImage id="saleAddCell" value="./../resources/img/cart.png" height="75px"
+                                                                width="75px" />
+                                            </h:commandLink>
                                             <ace:animation event="click" name="clip"/>
                                             <ace:animation event="click" name="highlight"/>
                                         </h:panelGrid>

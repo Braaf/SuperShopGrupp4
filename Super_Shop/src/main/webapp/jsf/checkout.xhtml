@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <body>
+
+        <ui:composition template="./template.xhtml">
+
+            <ui:define name="top">
+                
+            </ui:define>
+
+            <ui:define name="content">
+                <!-- SHOW SMALL VERSION OF CART HERE! -->
+                
+                <h:outputText value="Name: #{checkoutBean.fname} #{checkoutBean.lname}" /><br/>
+                <h:outputText value="Date of birth: #{checkoutBean.pnumb}" /><br/>
+                <h:outputText value="Address: #{checkoutBean.street} #{checkoutBean.streetnumber}" /><br/>
+                <h:outputText value="         #{checkoutBean.postalcode} #{checkoutBean.city}" /><br/><br/>
+                <div>
+                    <h:form>
+                    <h:outputText value="Fill in your payment details below" />
+                    <h:panelGrid border ="1" columns="2">
+                    <h:outputText value="First name: "/>
+                    <h:inputText id="fname" value ="#{checkoutBean.cfname}"/>
+                    
+                    <h:outputText value="Last name: " />
+                    <h:inputText id="clname" value ="#{checkoutBean.clname}"/>
+                    
+                    <h:outputText value="Cardnumber: " />
+                    <h:inputText id="cardnumber" value="#{checkoutBean.cardnumber}" />
+                    
+                    <h:outputText value="Expirationdate MMYY: "/>
+                    <h:inputText id="expiration" value="#{checkoutBean.expiration}"/>
+                    
+                    <h:outputText value="CVC:"/>
+                    <h:outputText id="cvc" value="#{checkoutBean.cvc}" />
+                    
+                    <h:commandButton id="order" value="Place the order" action="#{checkoutBean.placeOrder}"/>
+                    </h:panelGrid>
+                    </h:form>
+                </div>               
+                
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
