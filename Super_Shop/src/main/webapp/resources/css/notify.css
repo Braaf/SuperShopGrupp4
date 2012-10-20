@@ -1,0 +1,22 @@
+/* 
+    Document   : notify
+    Created on : Oct 20, 2012, 7:25:23 PM
+    Author     : Andreas
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.notify_title {
+    display: block;
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 2em;
+}
+
+.notify_description {
+    display: block;
+    text-align: center;
+    font-size: 1.1em;
+    margin-top: 2em;
+    margin-bottom: 5em;
+}
