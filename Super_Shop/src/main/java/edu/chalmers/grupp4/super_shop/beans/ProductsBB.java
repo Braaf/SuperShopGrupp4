@@ -39,8 +39,10 @@ public class ProductsBB implements Serializable {
     public void decrementStock(Product p){
         System.out.println(p.getName() + "prodname");
         if(p.getStock() > 0){
-            pcBean.setStock(p.getName(), p.getStock() - 1);
-            
+            System.out.println(p.getName() + " " + p.getStock());
+            p.setStock(p.getStock() - 1);
+            pcBean.update(p);
+            System.out.println(p.getName() + " " + p.getStock());
         }
     }
     
