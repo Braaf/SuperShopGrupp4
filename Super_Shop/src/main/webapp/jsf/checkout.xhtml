@@ -6,7 +6,8 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
     <body>
 
@@ -34,16 +35,22 @@ and open the template in the editor.
                     <h:inputText id="fname" required ="true" value ="#{checkoutBean.cfname}"/>
                     
                     <h:outputText value="Last name: " />
-                    <h:inputText id="clname" value ="#{checkoutBean.clname}"/>
+                    <h:inputText id="clname" required="true" value ="#{checkoutBean.clname}"/>
                     
                     <h:outputText value="Cardnumber: " />
-                    <h:inputText id="cardnumber" value="#{checkoutBean.cardnumber}" />
+                    <h:inputText id="cardnumber" required="true" value="#{checkoutBean.cardnumber}" >
+                    <f:validateLength id="lenValidator" for="cardnumber" maximum="10" minimum="10"/>
+                    </h:inputText>
                     
                     <h:outputText value="Expirationdate MMYY: "/>
-                    <h:inputText id="expiration" value="#{checkoutBean.expiration}"/>
+                    <h:inputText id="expiration" required="true" value="#{checkoutBean.expiration}">
+                    <f:validateLength id="lenValidator" for="expiration" maximum="4" minimum="4"/>
+                    </h:inputText>
                     
                     <h:outputText value="CVC:"/>
-                    <h:inputText id="cvc" value="#{checkoutBean.cvc}" />
+                    <h:inputText id="cvc" required="true" value="#{checkoutBean.cvc}" >            
+                    <f:validateLength id="lenValidator" for="cvc" maximum="3" minimum="3"/>
+                    </h:inputText>
                     
                     <h:commandButton id="order" value="Place the order" action="#{checkoutBean.placeOrder()}"/>
                     </h:panelGrid>

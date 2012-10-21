@@ -41,11 +41,10 @@ public class CheckoutBB {
     private String clname;
     @NotNull
     @Min(value = 1)
-    @Max(value = 999)
     private int cardnumber;
     @NotNull
     @Min(value = 1)
-    @Max(value = 999)
+    @Max(value = 9999)
     private int expiration;
     @NotNull
     @Min(value = 1)
