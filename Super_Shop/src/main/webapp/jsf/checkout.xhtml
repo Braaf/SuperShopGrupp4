@@ -18,17 +18,20 @@ and open the template in the editor.
 
             <ui:define name="content">
                 <!-- SHOW SMALL VERSION OF CART HERE! -->
-                
+                <div>
+                <h:form>
                 <h:outputText value="Name: #{checkoutBean.fname} #{checkoutBean.lname}" /><br/>
                 <h:outputText value="Date of birth: #{checkoutBean.pnumb}" /><br/>
                 <h:outputText value="Address: #{checkoutBean.street} #{checkoutBean.streetnumber}" /><br/>
                 <h:outputText value="         #{checkoutBean.postalcode} #{checkoutBean.city}" /><br/><br/>
+                </h:form>
+                </div>
                 <div>
                     <h:form>
-                    <h:outputText value="Fill in your payment details below" />
+                    <h:outputText value="Fill in your payment details below" /><br/>
                     <h:panelGrid border ="1" columns="2">
                     <h:outputText value="First name: "/>
-                    <h:inputText id="fname" value ="#{checkoutBean.cfname}"/>
+                    <h:inputText id="fname" required ="true" value ="#{checkoutBean.cfname}"/>
                     
                     <h:outputText value="Last name: " />
                     <h:inputText id="clname" value ="#{checkoutBean.clname}"/>
@@ -40,9 +43,9 @@ and open the template in the editor.
                     <h:inputText id="expiration" value="#{checkoutBean.expiration}"/>
                     
                     <h:outputText value="CVC:"/>
-                    <h:outputText id="cvc" value="#{checkoutBean.cvc}" />
+                    <h:inputText id="cvc" value="#{checkoutBean.cvc}" />
                     
-                    <h:commandButton id="order" value="Place the order" action="#{checkoutBean.placeOrder}"/>
+                    <h:commandButton id="order" value="Place the order" action="#{checkoutBean.placeOrder()}"/>
                     </h:panelGrid>
                     </h:form>
                 </div>               
