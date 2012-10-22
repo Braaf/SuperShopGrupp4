@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import javax.annotation.PreDestroy;
 import javax.ejb.PrePassivate;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -61,7 +62,8 @@ public class CartBean implements Serializable{
         return cart.getProductFreq().get(p);
     }
     
-    @PrePassivate
+    //Called on sessionexpire?
+    @PreDestroy
     public void emptyCart(){
         HashMap<Product, Integer> cartMap = (HashMap<Product, Integer>) getProductFreq();
         Set<Product> pSet = cartMap.keySet();
@@ -73,4 +75,5 @@ public class CartBean implements Serializable{
             pc.update(p);
         }
     }
+    
 }
