@@ -48,22 +48,14 @@
                                 <ace:column id="saleQuantity" headerText="Quantity in stock">
                                     <h:outputText id="saleQuantityCell" value="#{prod.stock}"/>
                                 </ace:column>
-                                
+
                                 <ace:column id="add" headerText="Add">
                                     <h:panelGrid styleClass="animationHolderParent">
                                         <h:panelGrid styleClass="animationHolder">
-                                            <c:if test="#{prod.inStock == true}">
-                                                <h:commandLink action="#{cartBB.addProd(prod)}">
-                                                    <h:graphicImage id="saleAddCell" value="./../resources/img/cart.png" height="75px"
-                                                                    width="75px" />
-                                                </h:commandLink>
-                                            </c:if>
-                                            <c:if test="#{prod.inStock == false}">
-                                                <h:commandLink action="#{cartBB.addProd(prod)}">
-                                                    <h:graphicImage id="saleAddCell" value="./../resources/img/cart.png" height="75px"
-                                                                    width="75px" />
-                                                </h:commandLink>
-                                            </c:if>
+                                            <h:commandLink action="#{cartBB.addProd(prod)}">
+                                                <h:graphicImage id="saleAddCell" value="./../resources/img/cart.png" height="75px"
+                                                                width="75px" />
+                                            </h:commandLink>
                                             <ace:animation event="click" name="clip"/>
                                             <ace:animation event="click" name="highlight"/>
                                         </h:panelGrid>

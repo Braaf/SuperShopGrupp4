@@ -113,8 +113,8 @@ public class Product implements Serializable {
         return true;
     }
     
-    public boolean inStock(){
-        return stock > 0 ? true : false;
+    public boolean getAvaible(){
+        return (stock > 0);
     }
 
    
