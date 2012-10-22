@@ -6,6 +6,7 @@ package edu.chalmers.grupp4.super_shop.beans;
 
 import edu.chalmers.grupp4.super_shop.core.Address;
 import edu.chalmers.grupp4.super_shop.core.Customer;
+import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -68,6 +69,11 @@ public class RegisterBB {
     }
     
     public String addNewCustomer(){
+        List<Customer> customers;
+        customers =crBean.getByName(username);
+        if(customers.isEmpty()){
+            return "notify?faces-redirect=true&msg=usernameBusy";
+        }
         if(password.equals(confPassword)){
         crBean.add(new Customer(new Address(street, streetNumber, postalCode, town), fname, lname, pnumb, email, username, password));
         return "login?faces-redirect=true"; 

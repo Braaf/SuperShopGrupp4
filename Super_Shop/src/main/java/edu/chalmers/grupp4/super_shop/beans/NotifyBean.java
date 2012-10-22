@@ -39,6 +39,9 @@ public class NotifyBean implements Serializable {
             case "cartIsEmpty":
                 title = "No products in the cart!";
                 description = "You have no products in your cart yet!";
+            case "usernameBusy":
+                title = "Username already in use!";
+                description ="That username is already taken, please register with another.";
         }
     }
 
