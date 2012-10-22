@@ -33,6 +33,7 @@ public class CheckoutBB {
     private int postalcode;
     private String city;
     
+    
     @NotNull
     @Size(min = 1, max = 10, message = "Name: Must use 1-10 chars\n")
     private String cfname;
@@ -41,10 +42,10 @@ public class CheckoutBB {
     private String clname;
     @NotNull
     @Min(value = 1)
-    private int cardnumber;
+    private long cardnumber;
     @NotNull
     @Min(value = 1)
-    @Max(value = 9999)
+    @Max(value = 1225)
     private int expiration;
     @NotNull
     @Min(value = 1)
@@ -94,7 +95,7 @@ public class CheckoutBB {
         this.clname = clname;
     }
     
-    public void setCardnumber(int cardnumber){
+    public void setCardnumber(long cardnumber){
         this.cardnumber = cardnumber;
     }
     
@@ -146,7 +147,7 @@ public class CheckoutBB {
         return clname;
     }
     
-    public int getCardnumber(){
+    public long getCardnumber(){
         return cardnumber;
     }
     

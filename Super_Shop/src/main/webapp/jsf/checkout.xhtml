@@ -7,6 +7,7 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ace="http://www.icefaces.org/icefaces/components" 
       xmlns:f="http://java.sun.com/jsf/core">
 
     <body>
@@ -18,13 +19,44 @@ and open the template in the editor.
             </ui:define>
 
             <ui:define name="content">
-                <!-- SHOW SMALL VERSION OF CART HERE! -->
+                
                 <div>
+                <h:form>
+                            <ace:dataTable id="cartFinalTable"
+                                           value="#{cartBean.getProducts()}"
+                                           var="prod">
+
+                                <ace:column id="salePic" headerText="Picture">
+                                    <h:graphicImage id="saleImgCell" height="70px" width="70px"
+                                                    value="#{prod.picture}" />
+                                </ace:column>
+
+                                <ace:column id="saleName" headerText="Name">
+                                    <h:outputText id="saleNameCell" value="#{prod.name}"/>
+                                </ace:column>
+
+                                <ace:column id="salePrice" headerText="Price">
+                                    <h:outputText id="salePriceCell" value="#{prod.price}"/>
+                                </ace:column>
+
+                                <ace:column id="selectedQuantity" headerText="Quantity selected">
+                                    <h:outputText id="saleQuantityCell" value="#{cartBean.getProductFreq(prod)}"/>
+                                </ace:column>
+                            </ace:dataTable>
+                             <ace:dataTable id="cartPriceTable">
+
+                                <ace:column id="totalPriceValue" headerText="Total: #{cartBean.getTotalPrice()}:-">
+                                </ace:column>
+
+                            </ace:dataTable>
+                        </h:form>
+                     </div><br/>
+                <div id="userInfo">
                 <h:form>
                 <h:outputText value="Name: #{checkoutBean.fname} #{checkoutBean.lname}" /><br/>
                 <h:outputText value="Date of birth: #{checkoutBean.pnumb}" /><br/>
                 <h:outputText value="Address: #{checkoutBean.street} #{checkoutBean.streetnumber}" /><br/>
-                <h:outputText value="         #{checkoutBean.postalcode} #{checkoutBean.city}" /><br/><br/>
+                <h:outputText value="#{checkoutBean.postalcode} #{checkoutBean.city}" /><br/><br/>
                 </h:form>
                 </div>
                 <div>
@@ -39,7 +71,7 @@ and open the template in the editor.
                     
                     <h:outputText value="Cardnumber: " />
                     <h:inputText id="cardnumber" required="true" value="#{checkoutBean.cardnumber}" >
-                    <f:validateLength id="lenValidator" for="cardnumber" maximum="10" minimum="10"/>
+                    <f:validateLength id="lenValidator" for="cardnumber" maximum="16" minimum="16"/>
                     </h:inputText>
                     
                     <h:outputText value="Expirationdate MMYY: "/>

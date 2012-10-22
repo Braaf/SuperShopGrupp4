@@ -59,4 +59,23 @@ public class CartBean implements Serializable{
     public int getProductFreq(Product p) {
         return cart.getProductFreq().get(p);
     }
+    
+    public int getTotalPrice(){
+        int totalPrice = 0;
+        List<Product> products = getProducts();
+        for(Product p : products){
+            int numberOfProducts = getProductFreq(p);
+            totalPrice += p.getPrice()*numberOfProducts;
+        }
+        return totalPrice;
+    }
+    
+    public void emptyCart(){
+        List<Product> products = getProducts();
+        for(Product p : products){
+            cart.remove(p);
+        }
+        
+        
+    }
 }

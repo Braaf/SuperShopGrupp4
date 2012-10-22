@@ -17,11 +17,11 @@ and open the template in the editor.
             </ui:define>
 
             <ui:define name="content">
-                
+                <div onload="#{cartBean.emptyCart()}">
                 <h:outputText value="Thank you for ordering from Super Shop!"/><br/>
                 <h:outputText value="Your order will be sent to you as soon as possibe, have a supergreat day!"/><br/>
                 <h:link value="Keep drowling at our superproducts" outcome="products"/>
-                
+                </div>
             </ui:define>
 
         </ui:composition>
