@@ -52,10 +52,10 @@ and open the template in the editor.
                         <h:inputText id="username" required ="true" value="#{registerBB.username}"/>
                         
                         <h:outputText value="Password: " />
-                        <h:inputText id="password" required ="true" value="#{registerBB.password}"/>
+                        <h:inputSecret id="password" required ="true" value="#{registerBB.password}"/>
                                               
                         <h:outputText value="Confirm password: " />
-                        <h:inputText id="confpassword" required ="true" value="#{registerBB.confPassword}"/>
+                        <h:inputSecret id="confpassword" required ="true" value="#{registerBB.confPassword}"/>
                     </h:panelGrid>                    
                     <h:commandButton value="Register" action="#{registerBB.addNewCustomer()}"/>
                 </h:form>
