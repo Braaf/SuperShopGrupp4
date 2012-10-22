@@ -36,6 +36,8 @@ public class CartBean implements Serializable{
     public void addProd(Product p){
         if(p.getStock() > 0){
             cart.add(p);
+            p.setStock(p.getStock() - 1);
+            pc.update(p);
         }
     }
     
