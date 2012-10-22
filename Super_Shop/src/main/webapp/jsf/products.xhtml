@@ -23,7 +23,7 @@
                     <ace:tabPane id="sale" label="SuperSale">
                         
                         <!-- http://icefaces-showcase.icesoft.org/showcase.jsf?grp=aceMenu&exp=dataTableBean -->
-                        <h:form id="form">
+                        <h:form id="saleForm">
                             <ace:dataTable id="saleTable"
                                            value="#{products.jackets}"
                                            var="prod">
@@ -48,11 +48,11 @@
                                 <ace:column id="saleQuantity" headerText="Quantity in stock">
                                     <h:outputText id="saleQuantityCell" value="#{prod.stock}"/>
                                 </ace:column>
-                                
+
                                 <ace:column id="add" headerText="Add">
                                     <h:panelGrid styleClass="animationHolderParent">
                                         <h:panelGrid styleClass="animationHolder">
-                                            <h:commandLink action="#{cartBB.addProd(prod)}" actionListener="#{products.decrementStock(prod)}">
+                                            <h:commandLink action="#{cartBB.addProd(prod)}">
                                                 <h:graphicImage id="saleAddCell" value="./../resources/img/cart.png" height="75px"
                                                                 width="75px" />
                                             </h:commandLink>
@@ -67,21 +67,274 @@
                         
                     </ace:tabPane>
                     <ace:tabPane id="jackets" label="SuperJackets">
+                        
+                         <h:form id="jacketsForm">
+                            <ace:dataTable id="jacketsTable"
+                                           value="#{products.jackets}"
+                                           var="prod">
+                                
+                                <ace:column id="jacketsPic" headerText="Picture">
+                                    <h:graphicImage id="jacketsImgCell" height="125px" width="125px"
+                                                    value="#{prod.picture}" />
+                                </ace:column>
+                                
+                                <ace:column id="jacketsName" headerText="Name">
+                                    <h:outputText id="jacketsNameCell" value="#{prod.name}"/>
+                                </ace:column>
+                                
+                                <ace:column id="jacketsDesc" headerText="Description" >
+                                    <h:outputText id="jacketsDescCell" value="#{prod.description}"/>
+                                </ace:column>
+                                
+                                <ace:column id="jacketsPrice" headerText="Price">
+                                    <h:outputText id="jacketsPriceCell" value="#{prod.price}"/>
+                                </ace:column>
+                                
+                                <ace:column id="jacketsQuantity" headerText="Quantity in stock">
+                                    <h:outputText id="jacketsQuantityCell" value="#{prod.stock}"/>
+                                </ace:column>
+
+                                <ace:column id="add" headerText="Add">
+                                    <h:panelGrid styleClass="animationHolderParent">
+                                        <h:panelGrid styleClass="animationHolder">
+                                            <h:commandLink action="#{cartBB.addProd(prod)}">
+                                                <h:graphicImage id="jacketsAddCell" value="./../resources/img/cart.png" height="75px"
+                                                                width="75px" />
+                                            </h:commandLink>
+                                            <ace:animation event="click" name="clip"/>
+                                            <ace:animation event="click" name="highlight"/>
+                                        </h:panelGrid>
+                                    </h:panelGrid>
+
+                                </ace:column>
+                            </ace:dataTable>
+                        </h:form>
+                        
                     </ace:tabPane>
                     <ace:tabPane id="shirts" label="SuperShirts">
                    
+                        <h:form id="shirtsForm">
+                            <ace:dataTable id="shirtsTable"
+                                           value="#{products.shirts}"
+                                           var="prod">
+                                
+                                <ace:column id="shirtsPic" headerText="Picture">
+                                    <h:graphicImage id="shirtsImgCell" height="125px" width="125px"
+                                                    value="#{prod.picture}" />
+                                </ace:column>
+                                
+                                <ace:column id="shirtsName" headerText="Name">
+                                    <h:outputText id="shirtsNameCell" value="#{prod.name}"/>
+                                </ace:column>
+                                
+                                <ace:column id="shirtsDesc" headerText="Description" >
+                                    <h:outputText id="shirtsDescCell" value="#{prod.description}"/>
+                                </ace:column>
+                                
+                                <ace:column id="shirtsPrice" headerText="Price">
+                                    <h:outputText id="shirtsPriceCell" value="#{prod.price}"/>
+                                </ace:column>
+                                
+                                <ace:column id="shirtsQuantity" headerText="Quantity in stock">
+                                    <h:outputText id="shirtsQuantityCell" value="#{prod.stock}"/>
+                                </ace:column>
+
+                                <ace:column id="add" headerText="Add">
+                                    <h:panelGrid styleClass="animationHolderParent">
+                                        <h:panelGrid styleClass="animationHolder">
+                                            <h:commandLink action="#{cartBB.addProd(prod)}">
+                                                <h:graphicImage id="shirtsAddCell" value="./../resources/img/cart.png" height="75px"
+                                                                width="75px" />
+                                            </h:commandLink>
+                                            <ace:animation event="click" name="clip"/>
+                                            <ace:animation event="click" name="highlight"/>
+                                        </h:panelGrid>
+                                    </h:panelGrid>
+
+                                </ace:column>
+                            </ace:dataTable>
+                        </h:form>
+                        
                     </ace:tabPane>
                     <ace:tabPane id="pants" label="SuperPants">
                    
+                        <h:form id="pantsForm">
+                            <ace:dataTable id="pantsTable"
+                                           value="#{products.pants}"
+                                           var="prod">
+                                
+                                <ace:column id="pantsPic" headerText="Picture">
+                                    <h:graphicImage id="pantsImgCell" height="125px" width="125px"
+                                                    value="#{prod.picture}" />
+                                </ace:column>
+                                
+                                <ace:column id="pantsName" headerText="Name">
+                                    <h:outputText id="pantsNameCell" value="#{prod.name}"/>
+                                </ace:column>
+                                
+                                <ace:column id="pantsDesc" headerText="Description" >
+                                    <h:outputText id="pantsDescCell" value="#{prod.description}"/>
+                                </ace:column>
+                                
+                                <ace:column id="pantsPrice" headerText="Price">
+                                    <h:outputText id="pantsPriceCell" value="#{prod.price}"/>
+                                </ace:column>
+                                
+                                <ace:column id="pantsQuantity" headerText="Quantity in stock">
+                                    <h:outputText id="pantsQuantityCell" value="#{prod.stock}"/>
+                                </ace:column>
+
+                                <ace:column id="add" headerText="Add">
+                                    <h:panelGrid styleClass="animationHolderParent">
+                                        <h:panelGrid styleClass="animationHolder">
+                                            <h:commandLink action="#{cartBB.addProd(prod)}">
+                                                <h:graphicImage id="pantsAddCell" value="./../resources/img/cart.png" height="75px"
+                                                                width="75px" />
+                                            </h:commandLink>
+                                            <ace:animation event="click" name="clip"/>
+                                            <ace:animation event="click" name="highlight"/>
+                                        </h:panelGrid>
+                                    </h:panelGrid>
+
+                                </ace:column>
+                            </ace:dataTable>
+                        </h:form>
+                        
                     </ace:tabPane>
                     <ace:tabPane id="shoes" label="SuperShoes">
                   
+                        <h:form id="shoesForm">
+                            <ace:dataTable id="shoesTable"
+                                           value="#{products.shoes}"
+                                           var="prod">
+                                
+                                <ace:column id="shoesPic" headerText="Picture">
+                                    <h:graphicImage id="shoesImgCell" height="125px" width="125px"
+                                                    value="#{prod.picture}" />
+                                </ace:column>
+                                
+                                <ace:column id="shoesName" headerText="Name">
+                                    <h:outputText id="shoesNameCell" value="#{prod.name}"/>
+                                </ace:column>
+                                
+                                <ace:column id="shoesDesc" headerText="Description" >
+                                    <h:outputText id="shoesDescCell" value="#{prod.description}"/>
+                                </ace:column>
+                                
+                                <ace:column id="shoesPrice" headerText="Price">
+                                    <h:outputText id="shoesPriceCell" value="#{prod.price}"/>
+                                </ace:column>
+                                
+                                <ace:column id="shoesQuantity" headerText="Quantity in stock">
+                                    <h:outputText id="shoesQuantityCell" value="#{prod.stock}"/>
+                                </ace:column>
+
+                                <ace:column id="add" headerText="Add">
+                                    <h:panelGrid styleClass="animationHolderParent">
+                                        <h:panelGrid styleClass="animationHolder">
+                                            <h:commandLink action="#{cartBB.addProd(prod)}">
+                                                <h:graphicImage id="shoesAddCell" value="./../resources/img/cart.png" height="75px"
+                                                                width="75px" />
+                                            </h:commandLink>
+                                            <ace:animation event="click" name="clip"/>
+                                            <ace:animation event="click" name="highlight"/>
+                                        </h:panelGrid>
+                                    </h:panelGrid>
+
+                                </ace:column>
+                            </ace:dataTable>
+                        </h:form>
+                        
                     </ace:tabPane>
                     <ace:tabPane id="shorts" label="SuperShorts">
                    
+                        <h:form id="shortsForm">
+                            <ace:dataTable id="shortsTable"
+                                           value="#{products.shorts}"
+                                           var="prod">
+                                
+                                <ace:column id="shortsPic" headerText="Picture">
+                                    <h:graphicImage id="shortsImgCell" height="125px" width="125px"
+                                                    value="#{prod.picture}" />
+                                </ace:column>
+                                
+                                <ace:column id="shortsName" headerText="Name">
+                                    <h:outputText id="shortsNameCell" value="#{prod.name}"/>
+                                </ace:column>
+                                
+                                <ace:column id="shortsDesc" headerText="Description" >
+                                    <h:outputText id="shortsDescCell" value="#{prod.description}"/>
+                                </ace:column>
+                                
+                                <ace:column id="shortsPrice" headerText="Price">
+                                    <h:outputText id="shortsPriceCell" value="#{prod.price}"/>
+                                </ace:column>
+                                
+                                <ace:column id="shortsQuantity" headerText="Quantity in stock">
+                                    <h:outputText id="shortsQuantityCell" value="#{prod.stock}"/>
+                                </ace:column>
+
+                                <ace:column id="add" headerText="Add">
+                                    <h:panelGrid styleClass="animationHolderParent">
+                                        <h:panelGrid styleClass="animationHolder">
+                                            <h:commandLink action="#{cartBB.addProd(prod)}">
+                                                <h:graphicImage id="shortsAddCell" value="./../resources/img/cart.png" height="75px"
+                                                                width="75px" />
+                                            </h:commandLink>
+                                            <ace:animation event="click" name="clip"/>
+                                            <ace:animation event="click" name="highlight"/>
+                                        </h:panelGrid>
+                                    </h:panelGrid>
+
+                                </ace:column>
+                            </ace:dataTable>
+                        </h:form>
+                        
                     </ace:tabPane>
                     <ace:tabPane id="suits" label="SuperSuits">
-                      
+                        
+                      <h:form id="suitsForm">
+                            <ace:dataTable id="suitsTable"
+                                           value="#{products.suits}"
+                                           var="prod">
+                                
+                                <ace:column id="suitsPic" headerText="Picture">
+                                    <h:graphicImage id="suitsImgCell" height="125px" width="125px"
+                                                    value="#{prod.picture}" />
+                                </ace:column>
+                                
+                                <ace:column id="suitsName" headerText="Name">
+                                    <h:outputText id="suitsNameCell" value="#{prod.name}"/>
+                                </ace:column>
+                                
+                                <ace:column id="suitsDesc" headerText="Description" >
+                                    <h:outputText id="suitsDescCell" value="#{prod.description}"/>
+                                </ace:column>
+                                
+                                <ace:column id="suitsPrice" headerText="Price">
+                                    <h:outputText id="suitsPriceCell" value="#{prod.price}"/>
+                                </ace:column>
+                                
+                                <ace:column id="suitsQuantity" headerText="Quantity in stock">
+                                    <h:outputText id="suitsQuantityCell" value="#{prod.stock}"/>
+                                </ace:column>
+
+                                <ace:column id="add" headerText="Add">
+                                    <h:panelGrid styleClass="animationHolderParent">
+                                        <h:panelGrid styleClass="animationHolder">
+                                            <h:commandLink action="#{cartBB.addProd(prod)}">
+                                                <h:graphicImage id="suitsAddCell" value="./../resources/img/cart.png" height="75px"
+                                                                width="75px" />
+                                            </h:commandLink>
+                                            <ace:animation event="click" name="clip"/>
+                                            <ace:animation event="click" name="highlight"/>
+                                        </h:panelGrid>
+                                    </h:panelGrid>
+
+                                </ace:column>
+                            </ace:dataTable>
+                        </h:form>
+                        
                     </ace:tabPane>
                 </ace:tabSet>
                 

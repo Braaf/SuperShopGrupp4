@@ -5,12 +5,17 @@
 package edu.chalmers.grupp4.super_shop.beans;
 
 import edu.chalmers.grupp4.super_shop.core.Cart;
+import edu.chalmers.grupp4.super_shop.core.JPAShop;
 import edu.chalmers.grupp4.super_shop.core.Product;
+import edu.chalmers.grupp4.super_shop.core.ProductCatalogue;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import javax.annotation.PreDestroy;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
@@ -22,14 +27,8 @@ import javax.inject.Named;
 @SessionScoped
 public class CartBean implements Serializable{
     
-    private int test;
-
-    public int getTest() {
-        return test;
-    }
-    
-    
     private final transient Cart cart = new Cart();
+    private final transient ProductCatalogue pc = (ProductCatalogue) JPAShop.INSTANCE.getProductCatalogue();
     
     public CartBean(){
     }
@@ -37,6 +36,8 @@ public class CartBean implements Serializable{
     public void addProd(Product p){
         if(p.getStock() > 0){
             cart.add(p);
+            p.setStock(p.getStock() - 1);
+            pc.update(p);
         }
     }
     
@@ -70,7 +71,7 @@ public class CartBean implements Serializable{
         return totalPrice;
     }
     
-    public void emptyCart(){
+    public void resetCart(){
         List<Product> products = getProducts();
         for(Product p : products){
             cart.remove(p);
@@ -78,4 +79,18 @@ public class CartBean implements Serializable{
         
         
     }
+    //Called on sessionexpire?
+    @PreDestroy
+    public void emptyCart(){
+        HashMap<Product, Integer> cartMap = (HashMap<Product, Integer>) getProductFreq();
+        Set<Product> pSet = cartMap.keySet();
+        //Re add items in cart to stock
+        for(Product p : pSet){
+            //Set stock to both our cart and current stock
+            p.setStock(p.getStock() + cartMap.get(p));
+            //updatdatabase
+            pc.update(p);
+        }
+    }
+    
 }
