@@ -47,8 +47,13 @@ public class CartBean implements Serializable{
         }
     }
     
-    public void removeProd(){
-        
+    public String removeProd(Product product){
+        cart.remove(product);
+        List<Product> products = getProducts();
+        if(products.isEmpty()){
+            notEmpty = false;
+        }
+        return "cart?faces-redirect=true";
     }
     
     public int getFreq(){
@@ -82,7 +87,7 @@ public class CartBean implements Serializable{
         for(Product p : products){
             cart.remove(p);
         }
-        
+        notEmpty = false;       
         
     }
     //Called on sessionexpire?

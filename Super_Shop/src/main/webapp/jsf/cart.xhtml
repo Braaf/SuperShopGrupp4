@@ -47,6 +47,9 @@
                                 <ace:column id="selectedQuantity" headerText="Quantity selected">
                                     <h:outputText id="saleQuantityCell" value="#{cartBean.getProductFreq(prod)}"/>
                                 </ace:column>
+                                <ace:column id="removeProduct" headerText="Remove">
+                                    <h:commandLink id="removeProductCell" value="Remove" action="#{cartBean.removeProd(prod)}"/>
+                                </ace:column>
                                 
                             </ace:dataTable>
                             
