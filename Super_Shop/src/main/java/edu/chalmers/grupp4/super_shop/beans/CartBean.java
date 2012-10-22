@@ -30,6 +30,9 @@ public class CartBean implements Serializable{
     private final transient Cart cart = new Cart();
     private final transient ProductCatalogue pc = (ProductCatalogue) JPAShop.INSTANCE.getProductCatalogue();
     
+    
+    private boolean notEmpty = false;
+    
     public CartBean(){
     }
     
@@ -38,6 +41,7 @@ public class CartBean implements Serializable{
             cart.add(p);
             p.setStock(p.getStock() - 1);
             pc.update(p);
+            notEmpty = true;
         }
     }
     
@@ -91,6 +95,14 @@ public class CartBean implements Serializable{
             //updatdatabase
             pc.update(p);
         }
+    }
+    
+    public boolean getNotEmpty(){
+        return notEmpty;
+    }
+    
+    public String cartIsEmpty(){
+        return "notify?faces-redirect=true&msg=cartIsEmpty";
     }
     
 }

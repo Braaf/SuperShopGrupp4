@@ -36,6 +36,9 @@ public class NotifyBean implements Serializable {
             case "pwNotMatching":
                 title = "Password not matching!";
                 description = "Password and Confirm password must match";
+            case "cartIsEmpty":
+                title = "No products in the cart!";
+                description = "You have no products in your cart yet!";
         }
     }
 

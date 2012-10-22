@@ -20,7 +20,7 @@
             <ui:define name="content">
                 
                     
-
+                <c:if test="#{cartBean.notEmpty == true}">
                         <!-- http://icefaces-showcase.icesoft.org/showcase.jsf?grp=aceMenu&exp=dataTableBean -->
                         <h:form id="form">
                             <ace:dataTable id="cartTable"
@@ -49,8 +49,22 @@
                                 </ace:column>
                                 
                             </ace:dataTable>
-                        </h:form>                    
-                
+                            
+                            <ace:dataTable id="cartPriceTable">
+
+                                <ace:column id="totalPriceValue" headerText="Total: #{cartBean.getTotalPrice()}:-">
+                                </ace:column>
+
+                            </ace:dataTable>
+                            <h:commandButton value="Check out" action="#{checkoutBean.setCustomerValues(loginBean.username)}"/>
+                        </h:form>          
+                </c:if>
+                <c:if test="#{cartBean.notEmpty == false}">
+                    <div>
+                        <h:outputText value ="Your have not added any products to your cart yet!"/><br/>
+                        <h:link value="Add some superproducts to the cart now." outcome="products"/>
+                    </div>
+                </c:if>
             </ui:define>
 
         </ui:composition>

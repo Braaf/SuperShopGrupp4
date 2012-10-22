@@ -8,7 +8,8 @@ and open the template in the editor.
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ace="http://www.icefaces.org/icefaces/components" 
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
 
     <body>
 
@@ -42,8 +43,8 @@ and open the template in the editor.
                                 <ace:column id="selectedQuantity" headerText="Quantity selected">
                                     <h:outputText id="saleQuantityCell" value="#{cartBean.getProductFreq(prod)}"/>
                                 </ace:column>
-                            </ace:dataTable>
-                             <ace:dataTable id="cartPriceTable">
+                                </ace:dataTable>
+                                <ace:dataTable id="cartPriceTable">
 
                                 <ace:column id="totalPriceValue" headerText="Total: #{cartBean.getTotalPrice()}:-">
                                 </ace:column>
