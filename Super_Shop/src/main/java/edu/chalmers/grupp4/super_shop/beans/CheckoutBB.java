@@ -10,6 +10,10 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -19,9 +23,7 @@ import javax.inject.Named;
 @RequestScoped
 public class CheckoutBB {
     
-    private CustomerRegistryBean crBean;
-    private String username = "default";
-  
+    private CustomerRegistryBean crBean;  
     
     private String fname;
     private String lname;
@@ -31,10 +33,22 @@ public class CheckoutBB {
     private int postalcode;
     private String city;
     
+    @NotNull
+    @Size(min = 1, max = 10, message = "Name: Must use 1-10 chars\n")
     private String cfname;
+    @NotNull
+    @Size(min = 1, max = 20, message = "Last name: Must use 2-20 chars")
     private String clname;
+    @NotNull
+    @Min(value = 1)
     private int cardnumber;
+    @NotNull
+    @Min(value = 1)
+    @Max(value = 9999)
     private int expiration;
+    @NotNull
+    @Min(value = 1)
+    @Max(value = 999)
     private int cvc;
     
     public CheckoutBB(){
@@ -51,8 +65,11 @@ public class CheckoutBB {
         return "orderplaced?faces-redirect=True";
     }
     
-    private void setCustomerValues(String username){
-        List<Customer> customers = crBean.getByUsername(username);        
+    public String setCustomerValues(String username){
+        List<Customer> customers = crBean.getByUsername(username); 
+        if (customers.isEmpty()) {
+            return "products?faces-redirect=true";
+        }
         Customer currentCustomer = customers.get(0);
         Address address = currentCustomer.getAddress();
         fname = currentCustomer.getFname();
@@ -62,19 +79,18 @@ public class CheckoutBB {
         streetnumber = address.getNbr();
         postalcode = address.getPostalcode();
         city = address.getTown();
+        
+        return "checkout?faces-redirect?true";
     }
     /////////////
     // Setters //
     /////////////
-    public void setUsername(String username){
-        this.username = username;
-    }
     
     public void setCfname(String cfname){
         this.cfname = cfname;
     }
     
-    public void setcClname(String clname){
+    public void setClname(String clname){
         this.clname = clname;
     }
     
@@ -122,5 +138,23 @@ public class CheckoutBB {
         return city;
     }
     
+    public String getCfname(){
+        return cfname;
+    }
     
+    public String getClname(){
+        return clname;
+    }
+    
+    public int getCardnumber(){
+        return cardnumber;
+    }
+    
+    public int getExpiration(){
+        return expiration;
+    }
+    
+    public int getCvc(){
+        return cvc;
+    }
 }

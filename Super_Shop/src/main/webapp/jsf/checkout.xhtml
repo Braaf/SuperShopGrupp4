@@ -6,7 +6,8 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
     <body>
 
@@ -18,31 +19,40 @@ and open the template in the editor.
 
             <ui:define name="content">
                 <!-- SHOW SMALL VERSION OF CART HERE! -->
-                
+                <div>
+                <h:form>
                 <h:outputText value="Name: #{checkoutBean.fname} #{checkoutBean.lname}" /><br/>
                 <h:outputText value="Date of birth: #{checkoutBean.pnumb}" /><br/>
                 <h:outputText value="Address: #{checkoutBean.street} #{checkoutBean.streetnumber}" /><br/>
                 <h:outputText value="         #{checkoutBean.postalcode} #{checkoutBean.city}" /><br/><br/>
+                </h:form>
+                </div>
                 <div>
                     <h:form>
-                    <h:outputText value="Fill in your payment details below" />
+                    <h:outputText value="Fill in your payment details below" /><br/>
                     <h:panelGrid border ="1" columns="2">
                     <h:outputText value="First name: "/>
-                    <h:inputText id="fname" value ="#{checkoutBean.cfname}"/>
+                    <h:inputText id="fname" required ="true" value ="#{checkoutBean.cfname}"/>
                     
                     <h:outputText value="Last name: " />
-                    <h:inputText id="clname" value ="#{checkoutBean.clname}"/>
+                    <h:inputText id="clname" required="true" value ="#{checkoutBean.clname}"/>
                     
                     <h:outputText value="Cardnumber: " />
-                    <h:inputText id="cardnumber" value="#{checkoutBean.cardnumber}" />
+                    <h:inputText id="cardnumber" required="true" value="#{checkoutBean.cardnumber}" >
+                    <f:validateLength id="lenValidator" for="cardnumber" maximum="10" minimum="10"/>
+                    </h:inputText>
                     
                     <h:outputText value="Expirationdate MMYY: "/>
-                    <h:inputText id="expiration" value="#{checkoutBean.expiration}"/>
+                    <h:inputText id="expiration" required="true" value="#{checkoutBean.expiration}">
+                    <f:validateLength id="lenValidator" for="expiration" maximum="4" minimum="4"/>
+                    </h:inputText>
                     
                     <h:outputText value="CVC:"/>
-                    <h:outputText id="cvc" value="#{checkoutBean.cvc}" />
+                    <h:inputText id="cvc" required="true" value="#{checkoutBean.cvc}" >            
+                    <f:validateLength id="lenValidator" for="cvc" maximum="3" minimum="3"/>
+                    </h:inputText>
                     
-                    <h:commandButton id="order" value="Place the order" action="#{checkoutBean.placeOrder}"/>
+                    <h:commandButton id="order" value="Place the order" action="#{checkoutBean.placeOrder()}"/>
                     </h:panelGrid>
                     </h:form>
                 </div>               
