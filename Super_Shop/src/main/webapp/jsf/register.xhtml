@@ -6,7 +6,8 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
     <body>
 
@@ -20,35 +21,41 @@ and open the template in the editor.
                 <h:form>
                     <h:panelGrid border ="1" columns="2">
                         <h:outputText value="First name: "/>
-                        <h:inputText id="fname" value="#{registerBB.fname}" />
+                        <h:inputText id="fname" required ="true" value="#{registerBB.fname}" />
                         
                         <h:outputText value="Last name: " />
-                        <h:inputText id="lname" value="#{registerBB.lname}"/>
+                        <h:inputText id="lname" required ="true" value="#{registerBB.lname}"/>
                         
                         <h:outputText value="Date of birth: " />
-                        <h:inputText id="pnumb" value="#{registerBB.pnumb}"/>
+                        <h:inputText id="pnumb" required ="true" value="#{registerBB.pnumb}">
+                        <f:validateLength id="lenValidator" for="pnumb" maximum="6" minimum="6"/>
+                        </h:inputText>
                         
                         <h:outputText value="Email: " />
-                        <h:inputText id="email" value="#{registerBB.email}"/>
+                        <h:inputText id="email" required ="true" value="#{registerBB.email}"/>
                         
                         <h:outputText value="Street: " />
-                        <h:inputText id="street" value="#{registerBB.street}"/>
+                        <h:inputText id="street" required ="true" value="#{registerBB.street}"/>
                         
                         <h:outputText value="Streetnumber: " />
-                        <h:inputText id="streetNumber" value="#{registerBB.streetNumber}"/>
+                        <h:inputText id="streetNumber" required ="true" value="#{registerBB.streetNumber}"/>
                         
                         <h:outputText value="Postalcode: " />
-                        <h:inputText id="postalCode" value="#{registerBB.postalCode}"/>
+                        <h:inputText id="postalCode" required ="true" value="#{registerBB.postalCode}">
+                        <f:validateLength id="lenValidator" for="postalCode" maximum="5" minimum="5"/>
+                        </h:inputText>
                         
                         <h:outputText value="City: " />
-                        <h:inputText id="town" value="#{registerBB.town}"/>
+                        <h:inputText id="town" required ="true" value="#{registerBB.town}"/>
                         
                         <h:outputText value="Username: " />
-                        <h:inputText id="username" value="#{registerBB.username}"/>
+                        <h:inputText id="username" required ="true" value="#{registerBB.username}"/>
                         
                         <h:outputText value="Password: " />
-                        <h:inputText id="password" value="#{registerBB.password}"/>
-                                               
+                        <h:inputText id="password" required ="true" value="#{registerBB.password}"/>
+                                              
+                        <h:outputText value="Confirm password: " />
+                        <h:inputText id="confpassword" required ="true" value="#{registerBB.confPassword}"/>
                     </h:panelGrid>                    
                     <h:commandButton value="Register" action="#{registerBB.addNewCustomer()}"/>
                 </h:form>
