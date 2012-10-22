@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import javax.ejb.PrePassivate;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
@@ -21,13 +22,6 @@ import javax.inject.Named;
 @Named
 @SessionScoped
 public class CartBean implements Serializable{
-    
-    private int test;
-
-    public int getTest() {
-        return test;
-    }
-    
     
     private final transient Cart cart = new Cart();
     
@@ -58,5 +52,10 @@ public class CartBean implements Serializable{
     
     public int getProductFreq(Product p) {
         return cart.getProductFreq().get(p);
+    }
+    
+    @PrePassivate
+    public void emptyCart(){
+        
     }
 }
