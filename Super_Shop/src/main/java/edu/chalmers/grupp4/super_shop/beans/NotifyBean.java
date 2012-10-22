@@ -33,6 +33,9 @@ public class NotifyBean implements Serializable {
                 title = "Password is not changed!";
                 description = "Your password has not been changed because new password and confirmation passwords does not match.";
                 break;
+            case "pwNotMatching":
+                title = "Password not matching!";
+                description = "Password and Confirm password must match";
         }
     }
 

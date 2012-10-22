@@ -50,12 +50,13 @@ public class RegisterBB {
     @Size(min = 5, max= 15, message = "Password must be between 5 and 15 chars long")
     private String password;
     @NotNull
+    @Size(min = 5, max= 15, message = "Password must be between 5 and 15 chars long")
+    private String confPassword;
+    @NotNull
     private int pnumb;
     @NotNull
     @Size(min = 1, max = 10, message = "Username: must be between 1 and 10 chars long")
     private String username;
-    
-//    private Address address;
     
     //Empty parameter constructor
     public RegisterBB(){
@@ -67,8 +68,12 @@ public class RegisterBB {
     }
     
     public String addNewCustomer(){
+        if(password.equals(confPassword)){
         crBean.add(new Customer(new Address(street, streetNumber, postalCode, town), fname, lname, pnumb, email, username, password));
-        return "login?faces-redirect=true"; //might be changed later
+        return "login?faces-redirect=true"; 
+        }else{
+            return "notify?faces-redirect=true&msg=pwNotMatching"; //notify the user if passwords doesnt match
+        }
     }
     //Getters and setters
     public Long getId(){
@@ -86,10 +91,6 @@ public class RegisterBB {
     public String getEmail(){
         return email;
     }
-    
-//    public Address getAddress(){
-//        return address;
-//    }
     
     public String getPassword(){
         return password;
@@ -118,6 +119,10 @@ public class RegisterBB {
     public int getPostalCode(){
         return postalCode;
     }
+    
+    public String getConfPassword(){
+        return confPassword;
+    }
    
     
     public void setFname(String fname){
@@ -131,10 +136,6 @@ public class RegisterBB {
     public void setEmail(String email){
         this.email = email;
     }
-//    
-//    public void setAddress(Address address){
-//        this.address = address;
-//    }
     
     public void setPassword(String password){
         this.password = password;
@@ -162,6 +163,10 @@ public class RegisterBB {
     
     public void setUsername(String username){
         this.username = username;
+    }
+    
+    public void setConfPassword(String confPassword) {
+        this.confPassword = confPassword;
     }
     
 }
