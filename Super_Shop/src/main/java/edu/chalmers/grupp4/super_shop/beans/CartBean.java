@@ -46,9 +46,15 @@ public class CartBean implements Serializable{
         }
     }
     
-    //remove the product from the cart and check if ther is any products left
+    //remove the product from the cart and check if there is any products left
     public String removeProd(Product product){
+        //Readd product to DB
+        product.setStock(product.getStock() + 1);
+        pc.update(product);
+        
+        //and remove from cart
         cart.remove(product);
+        
         List<Product> products = getProducts();
         if(products.isEmpty()){
             notEmpty = false;
