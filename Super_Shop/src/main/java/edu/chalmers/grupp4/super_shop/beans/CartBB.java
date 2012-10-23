@@ -4,12 +4,7 @@
  */
 package edu.chalmers.grupp4.super_shop.beans;
 
-import edu.chalmers.grupp4.super_shop.core.Customer;
-import edu.chalmers.grupp4.super_shop.core.JPAShop;
-import edu.chalmers.grupp4.super_shop.core.OrderBook;
 import edu.chalmers.grupp4.super_shop.core.Product;
-import edu.chalmers.grupp4.super_shop.core.PurchaseOrder;
-import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -32,6 +27,7 @@ public class CartBB {
         this.cbean = cbean;
     }
     
+    //adds a product to the cart and refreshes the products page
     public String addProd(Product p){
         cbean.addProd(p);
         return "products?faces-redirect=true";

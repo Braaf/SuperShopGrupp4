@@ -1,6 +1,5 @@
 package edu.chalmers.grupp4.super_shop.beans;
 
-import edu.chalmers.grupp4.super_shop.core.Cart;
 import edu.chalmers.grupp4.super_shop.core.Product;
 import java.io.Serializable;
 import java.util.List;

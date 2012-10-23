@@ -62,10 +62,12 @@ public class CheckoutBB {
         
     }
     
+    //Just redirect the user to a page that says that the order is placed, this is the place to use the customer payment details
     public String placeOrder(){
         return "orderplaced?faces-redirect=True";
     }
     
+    //if the user is logged in, intiate the customers values
     public String setCustomerValues(String username){
         List<Customer> customers = crBean.getByUsername(username); 
         if (customers.isEmpty()) {

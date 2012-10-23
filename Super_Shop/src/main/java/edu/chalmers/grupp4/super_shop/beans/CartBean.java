@@ -15,9 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import javax.annotation.PreDestroy;
 import javax.ejb.PrePassivate;
-import javax.ejb.Remove;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
@@ -38,6 +36,7 @@ public class CartBean implements Serializable{
     public CartBean(){
     }
     
+    //add a product to the cart and update the productcatalogue with the new quantity
     public void addProd(Product p){
         if(p.getStock() > 0){
             cart.add(p);
@@ -47,6 +46,7 @@ public class CartBean implements Serializable{
         }
     }
     
+    //remove the product from the cart and check if ther is any products left
     public String removeProd(Product product){
         cart.remove(product);
         List<Product> products = getProducts();
@@ -59,6 +59,8 @@ public class CartBean implements Serializable{
     public int getFreq(){
         return 1;
     }
+    
+    //get the number of how many products of each kind that has been put in the cart
     public Map<Product, Integer> getProductFreq(){
         return cart.getProductFreq();
     }
@@ -67,11 +69,12 @@ public class CartBean implements Serializable{
         Product[] arr = cart.getProductFreq().keySet().toArray(new Product[0]);
         return new ArrayList(Arrays.asList(arr));
     }
-    
+    //get the number of how many of a specific product that has been put in the cart
     public int getProductFreq(Product p) {
         return cart.getProductFreq().get(p);
     }
     
+    //get the total price of all the products in the cart together
     public int getTotalPrice(){
         int totalPrice = 0;
         List<Product> products = getProducts();
@@ -82,6 +85,7 @@ public class CartBean implements Serializable{
         return totalPrice;
     }
     
+    //remove all the products from the cart
     public void resetCart(){
         List<Product> products = getProducts();
         for(Product p : products){
@@ -108,6 +112,7 @@ public class CartBean implements Serializable{
         return notEmpty;
     }
     
+    //return a notification page that tells the user that the cart is empty
     public String cartIsEmpty(){
         return "notify?faces-redirect=true&msg=cartIsEmpty";
     }
