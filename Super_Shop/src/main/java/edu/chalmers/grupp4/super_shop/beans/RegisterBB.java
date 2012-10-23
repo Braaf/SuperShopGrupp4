@@ -71,7 +71,7 @@ public class RegisterBB {
     public String addNewCustomer(){
         List<Customer> customers;
         customers =crBean.getByName(username);
-        if(customers.isEmpty()){ //checks if the username is already taken, if so redirect to a notification page
+        if(!customers.isEmpty()){ //checks if the username is already taken, if so redirect to a notification page
             return "notify?faces-redirect=true&msg=usernameBusy";
         }
         if(password.equals(confPassword)){ //checks that both passwords that has been inserted matches and if so add the customer to the registry
