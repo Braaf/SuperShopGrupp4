@@ -95,7 +95,7 @@ public class CartBean implements Serializable{
     public void resetCart(){
         List<Product> products = getProducts();
         for(Product p : products){
-            cart.remove(p);
+            cart.removeAll(p);
         }
         notEmpty = false;       
         

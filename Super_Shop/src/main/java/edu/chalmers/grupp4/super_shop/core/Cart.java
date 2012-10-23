@@ -30,7 +30,11 @@ public class Cart implements Serializable{
             productFreq.remove(product);
         }
     }
-
+    
+    public void removeAll(Product product){
+        productFreq.remove(product);
+    }
+    
     public Map<Product, Integer> getProductFreq() {
         return productFreq;
     }
