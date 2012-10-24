@@ -87,6 +87,13 @@ public enum JPAShop {
         productCatalogue.add(new Product("Supersuit - blue", Double.parseDouble("1999"), "suits", 9, "The blue supersuit!", "./../resources/img/super_shop_clothes/super_suits/super_suit_blue.jpg"));
         productCatalogue.add(new Product("Supersuit - gray", Double.parseDouble("1799"), "suits", 9, "The gray supersuit!", "./../resources/img/super_shop_clothes/super_suits/super_suit_gray.jpg"));
         
+        
+        //supersale
+        productCatalogue.add(new Product("Supersuit - gray", Double.parseDouble("999"), "supersale", 9, "The gray supersuit, now for a even better superprice!", "./../resources/img/super_shop_clothes/super_sale/super_suit_gray_sale.jpg"));
+        productCatalogue.add(new Product("Supershorts - red", Double.parseDouble("99"), "supersale", 5, "Awesome pair of red supershorts, now for a even better superprice!!", "./../resources/img/super_shop_clothes/super_sale/super_shorts_green_sale.jpg"));
+        productCatalogue.add(new Product("Supershoes - brown", Double.parseDouble("499"), "supersale", 7, "Awesome pair of brown supershoes, now for a even better superprice!!", "./../resources/img/super_shop_clothes/super_sale/super_shoe_brown_sale.jpg"));
+        productCatalogue.add(new Product("Supershirt - yellow", Double.parseDouble("119"), "supersale", 9, "Awesome yellow supershirt, now for a even better superprice!!", "./../resources/img/super_shop_clothes/super_sale/super_shirt_yellow_sale.jpg"));
+        productCatalogue.add(new Product("Superpants - orange", Double.parseDouble("99"), "supersale", 9, "Awesome pair of orange superpants, now for a even better superprice!!", "./../resources/img/super_shop_clothes/super_sale/super_pants_orange_sale.jpg"));
     }
     
     private void createCustomer() {
