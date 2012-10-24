@@ -46,7 +46,7 @@ public class ProductsBB implements Serializable {
     // Methods for product listing by category!        //
     //*************************************************//
     public List<Product> getSale(){
-        return pcBean.getByCategory("sale");
+        return pcBean.getByCategory("supersale");
     }
     
     public List<Product> getJackets(){
