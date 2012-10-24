@@ -47,7 +47,6 @@ a:link:hover, a:visited:hover  {
     font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
 }
 
-li{
-    
+#top li{    
     display:inline;
 }

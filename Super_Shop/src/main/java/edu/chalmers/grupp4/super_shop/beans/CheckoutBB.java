@@ -71,7 +71,7 @@ public class CheckoutBB {
     public String setCustomerValues(String username){
         List<Customer> customers = crBean.getByUsername(username); 
         if (customers.isEmpty()) {
-            return "products?faces-redirect=true";
+            return "login?faces-redirect=true";
         }
         Customer currentCustomer = customers.get(0);
         Address address = currentCustomer.getAddress();
