@@ -8,6 +8,7 @@ import edu.chalmers.grupp4.super_shop.core.Address;
 import edu.chalmers.grupp4.super_shop.core.Customer;
 import java.io.Serializable;
 import java.util.List;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -21,7 +22,7 @@ import javax.validation.constraints.Size;
  * @author Andreas
  */
 @Named
-@SessionScoped
+@RequestScoped
 public class AccountBean implements Serializable {
     
     private CustomerRegistryBean bean;
